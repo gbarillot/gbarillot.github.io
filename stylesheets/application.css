@@ -2482,23 +2482,35 @@ ul.no-bullet {
 .social {
   position: fixed;
   top: 0;
-  z-index: 1000; }
+  z-index: 1000;
+  width: 40px; }
+
+/* line 34, /Users/guillaume/www/perso/blog/source/stylesheets/application.css.scss */
+.social li {
+  display: inline-block;
+  margin-right: 20px;
+  width: 40px;
+  height: 36px;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 50%;
+  padding-top: 4px; }
 
 @media (max-width: 768px) {
-  /* line 34, /Users/guillaume/www/perso/blog/source/stylesheets/application.css.scss */
+  /* line 45, /Users/guillaume/www/perso/blog/source/stylesheets/application.css.scss */
   .social {
     position: relative;
     width: 100%;
     text-align: center;
     margin: auto; }
 
-  /* line 40, /Users/guillaume/www/perso/blog/source/stylesheets/application.css.scss */
+  /* line 51, /Users/guillaume/www/perso/blog/source/stylesheets/application.css.scss */
   .social ul {
     width: 100%;
     text-align: center;
     margin-left: -20px; }
 
-  /* line 45, /Users/guillaume/www/perso/blog/source/stylesheets/application.css.scss */
+  /* line 56, /Users/guillaume/www/perso/blog/source/stylesheets/application.css.scss */
   .social li {
     display: inline-block;
     margin-right: 20px;
@@ -2506,4 +2518,5 @@ ul.no-bullet {
     height: 40px;
     text-align: center;
     background-color: #fff;
-    border-radius: 50%; } }
+    border-radius: 50%;
+    padding-top: 6px; } }
