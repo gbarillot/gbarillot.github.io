@@ -5,10 +5,21 @@
   <id>http://www.guillaume-barillot.com</id>
   <link href="http://www.guillaume-barillot.com"/>
   <link href="http://www.guillaume-barillot.com/tag/vue/feed.xml" rel="self"/>
-  <updated>2017-12-02T17:47:00Z</updated>
+  <updated>2022-05-05T14:36:00Z</updated>
   <author>
     <name>Guillaume</name>
   </author>
+  <entry>
+    <title>Rails + Vite + Vue 3 + Pina starter pack</title>
+    <link rel="alternate" href="http://www.guillaume-barillot.com/2022/05/05/rails-vite-vue-3-pina-starter-pack/"/>
+    <id>http://www.guillaume-barillot.com/2022/05/05/rails-vite-vue-3-pina-starter-pack/</id>
+    <published>2022-05-05T14:36:00Z</published>
+    <updated>2022-05-05T17:55:42+02:00</updated>
+    <author>
+      <name>Guillaume</name>
+    </author>
+    <summary type="html">A blog post I published in 2017 about how to organize your vue files in a Rails projet, ended with those words: “The Web has not been built for SPA’s, neither browsers were. Simple things in the "old world” may become quite tricky very fast". Not only</summary>
+  </entry>
   <entry>
     <title>How to organize a Vue app in a Rails project using Webpack</title>
     <link rel="alternate" href="http://www.guillaume-barillot.com/2017/12/02/how-to-organize-your-vue-files-in-a-rails-5-1-project-using-webpack/"/>
