@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>I build stuff: Cinq bonnes raisons d'aimer Ruby</title>
+<meta content='Cela faisait très longtemps que j&amp;#39;avais ce post en tête, j&amp;#39;avais vraiment envie de mettre à plat quelques unes des raisons qui font qu&amp;#...' name='description'>
+<meta charset='utf-8'>
+<meta content='width=device-width, initial-scale=1.0' name='viewport'>
+<meta content='IE=edge' http-equiv='X-UA-Compatible'>
+<meta content='True' name='HandheldFriendly'>
+<meta content='UlIFhV8FstDJpoRovjvM0LzmXqguqwhyqNDL5DyKaGQ' name='google-site-verification'>
+<link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/feed.xml" />
+<link href="/images/favicon.ico" rel="icon" type="image/ico" />
+<link href="/stylesheets/application.css" rel="stylesheet" type="text/css" />
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<link href='//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400' rel='stylesheet' type='text/css'>
+</head>
+<body class='post-template nav-closed'>
+<div class='nav'>
+<h3 class='nav-title'>Menu</h3>
+<a class='nav-close' href='#'>
+<span class='hidden'>Close</span>
+</a>
+<ul>
+</ul>
+<a class='subscribe-button icon-feed' href='/feed.xml'>Subscribe</a>
+</div>
+<span class='nav-cover'></span>
+
+<div class='site-wrapper'>
+<div class='social'>
+<ul class='no-bullet'>
+<li>
+<a href="https://twitter.com/gbarillot" target="_blank"><i class='fa fa-twitter'></i>
+</a></li>
+<li>
+<a href="https://github.com/gbarillot" target="_blank"><i class='fa fa-github'></i>
+</a></li>
+<li>
+<script>
+  document.write('<a href="ma');
+  document.write('ilto');
+  document.write(':&#103;&#98;&#97;&#114;&#105;&#108;&#108;&#111;&#116;');
+  document.write('@');
+  document.write('&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">');
+  document.write("<i class='fa fa-envelope'></i>");
+  document.write('<\/a>');
+</script>
+<noscript>
+&#103;&#98;&#97;&#114;&#105;&#108;&#108;&#111;&#116; at &#103;&#109;&#97;&#105;&#108; dot &#99;&#111;&#109;
+</noscript>
+</li>
+<li>
+<a href="https://fr.linkedin.com/pub/guillaume-barillot/27/204/4b9" target="_blank"><i class='fa fa-linkedin'></i>
+</a></li>
+</ul>
+</div>
+<header class='main-header no-cover post-head'>
+<nav class='main-nav clearfix'>
+</nav>
+</header>
+<main class='content' role='main'>
+<article class='post'>
+<header class='post-header'>
+<h1 class='post-title'>Cinq bonnes raisons d'aimer Ruby</h1>
+<section class='post-meta'>
+<time class='post-date' datetime='2011-01-27'>
+27 January 2011
+</time>
+on <a href='/tag/la-technique/'>la-technique</a>, <a href='/tag/ruby-on-rails/'>ruby-on-rails</a>
+</section>
+</header>
+<section class='post-content'><p>Cela faisait très longtemps que j&#39;avais ce post en tête, j&#39;avais vraiment envie de mettre à plat quelques unes des raisons
+qui font qu&#39;il m&#39;est maintenant pénible de revenir à PHP (non, c&#39;est pas un troll, j&#39;explique, c&#39;est tout !).
+Voici donc 5 aspects particulièrement pratiques à mes yeux en ce qui concerne mon utilisation quotidienne de Ruby :<em>**Tout est objet </em>*
+Oui, je sais, on vous a déja fait le coup avec Java, mais là c&#39;est vrai. Même avec les types primitifs. Le
+nombre &ldquo;1&rdquo; par exemple, est un objet comme les autres.
+<strong>Exemple :</strong></p>
+
+<p>5.times{puts &ldquo;hello&rdquo;}
+hello
+hello
+hello
+hello
+hello
+Et pour connaitre toutes les méthodes d&#39;un objet, c&#39;est aussi très simple : &ldquo;1.methods&rdquo; dans le cas présent vous dira tout ce qu&#39;il est possible de faire avec votre nombre &ldquo;1&rdquo;.
+Tout ça peut paraitre un peu gadget présenté comme ça, mais le GROS avantage que j&#39;y vois par rapport aux autres languages, c&#39;est qu&#39;on a plus de question à se poser : tout, absolument tout, est objet. Pas d&#39;exception à rajouter dans mon petit cerveau encombré, c&#39;est déja ça de gagné.</p>
+
+<p><em>**La syntaxe </em>*
+Avec &ldquo;la syntaxe&rdquo;, je suis vraiment large et regroupe volontairement un paquet de choses, mais ce seul &ldquo;la syntaxe&rdquo; est un argument de poids quand vous passez 10 heures/jour devant votre écran.
+Je ne sais pas vous, mais moi en tout cas, le camelCase les () ; et autres {} ça me fait mal aux yeux.</p>
+
+<p><strong>Exemple</strong></p>
+
+<h1>Ruby</h1>
+
+<p>if my<em>flag == true
+  Stuff.do</em>this<em>little</em>trick<em>with &ldquo;a string&rdquo;
+else
+  Stuff.do</em>not<em>do</em>it
+end
+Avouez quand même que par rapport à ça</p>
+
+<h1>PHP</h1>
+
+<p>if(my_flag == true){
+  Stuff-&gt;doThisLittleTrickWith(&ldquo;a string&rdquo;);
+}
+else {
+  Stuff-&gt;doNotDoIt();
+}
+C&#39;est quand même plus lisible, non ? Cet exemple est archi simple, mais quand vous avez plusieurs centaines de lignes dans une classe codée il y a un plus d&#39;un an, (ou codée par quelqu&#39;un d&#39;autre) croyez moi, on apprécie&hellip;</p>
+
+<p><em>**Les attributes accessors</em>*
+Il y a plusieurs façon de renvoyer plusieurs attributs en sortie d&#39;une classe. La plus évidente est sous forme de tableau. D&#39;ailleurs, bien souvent, vous n&#39;avez pas trop le choix, à moins de créer une méthode uniquement pour pouvoir accéder à vos attributs avec une notation objet plus pratique et élégante. En ce qui me concerne, moins j&#39;en fais et mieux je me porte, d&#39;autant que Ruby met à ma disposition les attr_accessors. Hy-per-pra-tique</p>
+
+<p><strong>Exemple :</strong></p>
+
+<p>class User</p>
+
+<p>attr<em>accessor :phone, :first</em>name, :last_name</p>
+
+<p>def initialize(phone, first<em>name, last</em>name)
+    @phone = phone
+    @first<em>name = first</em>name
+    @last<em>name = last</em>name
+  end</p>
+
+<p>end</p>
+
+<p>=&gt; new<em>user = User.new(&ldquo;0812 01 02 03&rdquo;, &ldquo;Guillaume&rdquo;, &ldquo;Barillot&rdquo;)
+=&gt; new</em>user.first_name # =&gt; &ldquo;Guillaume&rdquo;
+Ca n&#39;a l&#39;air de rien, mais l&#39;essayer, c&#39;est l&#39;adopter !</p>
+
+<p><em>**La console</em>*</p>
+
+<p>Mon premier language était Python (où la console existe aussi depuis toujours), ceci explique peut être cela, mais j&#39;ai toujours apprécié d&#39;avoir une console sous la main. Vous ne vous rappelez plus de la syntaxe de tel appel ? Vous avez un doute sur ce que
+va faire votre boucle ? Hop, un petit tour en console et vous êtes fixé, pas besoin de relancer tout votre process et votre page Web.</p>
+
+<p><strong>Exemple :</strong></p>
+
+<p>irb &gt; 5.Time.puts &ldquo;hello&rdquo;
+NoMethodError: undefined method `Time&rsquo; for 5:Fixnum
+    from (irb):19
+    from :0</p>
+
+<h1>Ha bon ?</h1>
+
+<p>irb &gt; 5.times{puts &ldquo;hello&rdquo;}
+hello
+hello
+hello
+hello
+hello</p>
+
+<h1>Vooooila, c&#39;est ça, j&#39;avais juste oublié les brackets</h1>
+
+<p><em>**La gestion des dates et du temps</em>*
+Alors ça, la première fois que je m&#39;en suis servi, j&#39;ai vraiment eu du mal à y croire ! Quiconque s&#39;est déja essayé à coder un calendrier ou -pire- un outil de gestion de planning s&#39;est forcément cassé les dents là dessus. Avec Ruby, économisez sur votre budget dentiste, tout est simple et intégré d&#39;origine, sans avoir recours à une librairie supplémentaire.</p>
+
+<p><strong>Exemple :</strong></p>
+
+<h1>Vous avez besoin des jours compris entre le 27 Février 2011 et le 2 Mars 2011</h1>
+
+<p>(Date.new(2011, 2, 27)..Date.new(2011, 3, 2)).each { |x| puts x.day }</p>
+
+<h1>=&gt; 27 28 1 2</h1>
+
+<h1>Même chose en 2012 ?</h1>
+
+<p>(Date.new(2012, 2, 27)..Date.new(2012, 3, 2)).each { |x| puts x.day }</p>
+
+<h1>=&gt; 27 28 29 1 2</h1>
+
+<h1>Hoooo, une année bisextile !</h1>
+
+<p>Voila, j&#39;éspère vous avoir donné envie de vous plonger dans cet excellent language qu&#39;est Ruby.</p>
+
+<p>Petite anecdote : devoir quitter PHP pour Ruby était l&#39;un des freins majeur qui me faisait résister au Framework &ldquo;Ruby on Rails&rdquo;. Finalement, et très honnêtement, je n&#39;ai jamais eu l&#39;impression &ldquo;d&#39;apprendre&rdquo; quelque chose, dans le sens &ldquo;on commence de rien et on suit péniblement la courbe d&#39;apprentissage&rdquo;. En fait, si vous connaissez la Programmation Orientée Objet, que vous êtes déja à l&#39;aise dans un autre language, et si en plus vous avez déja exploré un peu Python, je le dis sans exagérer : il n&#39;y a pas de courbe d&#39;apprentissage ! Vous pouvez réellement prendre en main ce language en quelques heures seulement.</p>
+
+<p>Vous utilisez déja Ruby et j&#39;ai oublié de parler d&#39;un aspect qui vous plait particulièrement ? Laissez votre commentaire !</p>
+</section>
+<footer class='post-footer'>
+<section class='author'>
+<h4>
+<a href='/author/guillaume/'>Guillaume</a>
+</h4>
+<p></p>
+Read
+<a href='/author/guillaume/'>more posts</a>
+by this author.
+</section>
+<section class='share'>
+<h4>Share this post</h4>
+<a class='icon-twitter' href='https://twitter.com/share?text=Cinq bonnes raisons d&#39;aimer Ruby&amp;amp;url=http://www.guillaume-barillot.com/2011/01/27/Cinq-bonnes-raisons-daimer-Ruby/' onclick='window.open(this.href, &#39;twitter-share&#39;, &#39;width=550,height=235&#39;);return false;'>
+<span class='hidden'>Twitter</span>
+</a>
+<a class='icon-facebook' href='https://www.facebook.com/sharer/sharer.php?u=http://www.guillaume-barillot.com/2011/01/27/Cinq-bonnes-raisons-daimer-Ruby/' onclick='window.open(this.href, &#39;facebook-share&#39;,&#39;width=580,height=296&#39;);return false;'>
+<span class='hidden'>Facebook</span>
+</a>
+<a class='icon-google-plus' href='https://plus.google.com/share?url=http://www.guillaume-barillot.com/2011/01/27/Cinq-bonnes-raisons-daimer-Ruby/' onclick='window.open(this.href, &#39;google-plus-share&#39;, &#39;width=490,height=530&#39;);return false;'>
+<span class='hidden'>Google+</span>
+</a>
+</section>
+</footer>
+</article>
+</main>
+<aside class='read-next'>
+<a class='no-cover read-next-story' href='/2011/01/24/Meetup-Ruby-Chambry/'>
+<section class='post'>
+<h2>Meetup Ruby à Chambéry</h2>
+<p>Meetup fort agréable ce week-end à Chambéry, dans les locaux de leadformance. Les différents Talks portaient sur l&#39;architecture, JRuby&hellip;</p>
+</section>
+</a>
+<a class='no-cover prev read-next-story' href='/2011/02/06/Initialiser-un-repo-Git-pour-les-nuls/'>
+<section class='post'>
+<h2>Initialiser un repo Git pour les nuls</h2>
+<p>Admettons que vous soyez dans la situtation suivante :*Vous disposez d&#39;un serveur dédié sur lequel vous hébergez (ou voulez&hellip;</p>
+</section>
+</a>
+</aside>
+
+<footer class='site-footer clearfix'>
+<section class='copyright'>
+<a href='/'>I build stuff</a>
+&copy;
+2022
+</section>
+<section class='poweredby'>
+Casper theme powered by
+<a href='https://ghost.org'>Ghost</a>
+</section>
+</footer>
+</div>
+<script src="/javascripts/application.js" type="text/javascript"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  
+  ga('create', 'UA-37821599-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>I build stuff: ruby-on-rails</title>
+  <subtitle>Posts tagged with ruby-on-rails</subtitle>
+  <id>http://www.guillaume-barillot.com</id>
+  <link href="http://www.guillaume-barillot.com"/>
+  <link href="http://www.guillaume-barillot.com/tag/ruby-on-rails/feed.xml" rel="self"/>
+  <updated>2017-12-02T17:47:00Z</updated>
+  <author>
+    <name>Guillaume</name>
+  </author>
+  <entry>
+    <title>A better organisation for JS/Jquery code base using Rails and Coffeescript</title>
+    <link rel="alternate" href="http://www.guillaume-barillot.com/2014/08/15/a-better-organisation-for-your-js-using-rails-coffeescript/"/>
+    <id>http://www.guillaume-barillot.com/2014/08/15/a-better-organisation-for-your-js-using-rails-coffeescript/</id>
+    <published>2014-08-15T08:59:00Z</published>
+    <updated>2022-05-05T09:01:28+02:00</updated>
+    <author>
+      <name>Guillaume</name>
+    </author>
+    <summary type="html">Once upon a time, there were two very, very distant planets… the first one was using brand new shiny full stack JS Frameworks, that handle rooting, templating, data binding. 
+On this planet, apps were blazing fast, Javascript files were well organised</summary>
+  </entry>
+  <entry>
+    <title>Switch from Selenium+Firefox to Poltergeist+Phantomjs and speed up your test suite </title>
+    <link rel="alternate" href="http://www.guillaume-barillot.com/2013/03/23/Switch-from-SeleniumFirefox-to-PoltergeistPhantomjs-and-speed-up-your-test-suite-/"/>
+    <id>http://www.guillaume-barillot.com/2013/03/23/Switch-from-SeleniumFirefox-to-PoltergeistPhantomjs-and-speed-up-your-test-suite-/</id>
+    <published>2013-03-23T00:00:00Z</published>
+    <updated>2022-05-05T09:01:28+02:00</updated>
+    <author>
+      <name>Guillaume</name>
+    </author>
+    <summary type="html">Selenium is a great tool for integration testing but it has two major drawbacks :*it relies on Firefox engine, so every time Firefox updates, you have to cross your finger and praise your test suite will still be usable
+
+it is f*** slow
+Solve those 2</summary>
+  </entry>
+  <entry>
+    <title>Paperclip caching and clean URLs or DragonFly on the fly image resizing ? Get the best of both worlds !</title>
+    <link rel="alternate" href="http://www.guillaume-barillot.com/2012/11/16/Paperclip-caching-and-clean-URLs-or-DragonFly-on-the-fly-image-resizing-Get-the-best-of-both-worlds-/"/>
+    <id>http://www.guillaume-barillot.com/2012/11/16/Paperclip-caching-and-clean-URLs-or-DragonFly-on-the-fly-image-resizing-Get-the-best-of-both-worlds-/</id>
+    <published>2012-11-16T00:00:00Z</published>
+    <updated>2022-05-05T09:01:28+02:00</updated>
+    <author>
+      <name>Guillaume</name>
+    </author>
+    <summary type="html">When it came across image manipulation using Rails, I had to make a choice : Paperclip to handle high traffic/popular websites, and DragonFly for privates, more confidential but also more evolutive applications.
+
+Let’s start with an example :# Paperclip</summary>
+  </entry>
+  <entry>
+    <title>Gérer correctement les accents avec Ruby, Rails et upcase</title>
+    <link rel="alternate" href="http://www.guillaume-barillot.com/2012/08/14/Grer-correctement-les-accents-avec-Ruby-Rails-et-upcase/"/>
+    <id>http://www.guillaume-barillot.com/2012/08/14/Grer-correctement-les-accents-avec-Ruby-Rails-et-upcase/</id>
+    <published>2012-08-14T00:00:00Z</published>
+    <updated>2022-05-05T09:01:28+02:00</updated>
+    <author>
+      <name>Guillaume</name>
+    </author>
+    <summary type="html">C'est assez étonnant d'avoir encore ce genre de problème de nos jours, mais Ruby (même 1.9.3), ne gère toujours pas correctement les passages de caractères accentués en majuscule. Explication :&amp;gt; puts “café”.upcase
+CAFé
+Pas terrible, hein ? Une solution</summary>
+  </entry>
+  <entry>
+    <title>Un premier avis sur Spree (plateforme Ecommerce pour Ruby on Rails)</title>
+    <link rel="alternate" href="http://www.guillaume-barillot.com/2011/11/02/Un-premier-avis-sur-Spree-plateforme-Ecommerce-pour-Ruby-on-Rails/"/>
+    <id>http://www.guillaume-barillot.com/2011/11/02/Un-premier-avis-sur-Spree-plateforme-Ecommerce-pour-Ruby-on-Rails/</id>
+    <published>2011-11-02T00:00:00Z</published>
+    <updated>2022-05-05T09:01:28+02:00</updated>
+    <author>
+      <name>Guillaume</name>
+    </author>
+    <summary type="html">Depuis bientôt trois ans que je pratique quotidiennement Ruby on Rails, il est toujours resté pour moi une problématique encore non résolue : “et pour le E-Commerce, on fait comment ?”. Je dois bien le dire, pour l'instant : “je fais comme je peux”. En</summary>
+  </entry>
+  <entry>
+    <title>Rulu 2011 : la communauté Ruby (on Rails) Européenne vaut vraiment le détour</title>
+    <link rel="alternate" href="http://www.guillaume-barillot.com/2011/07/02/Rulu-2011-la-communaut-Ruby-on-Rails-Europenne-vaut-vraiment-le-dtour/"/>
+    <id>http://www.guillaume-barillot.com/2011/07/02/Rulu-2011-la-communaut-Ruby-on-Rails-Europenne-vaut-vraiment-le-dtour/</id>
+    <published>2011-07-02T00:00:00Z</published>
+    <updated>2022-05-05T09:01:28+02:00</updated>
+    <author>
+      <name>Guillaume</name>
+    </author>
+    <summary type="html">Un p'tit peu de retard dans la restranscription de RULU, la conf’ Ruby (on Rails) Lyonnaise qui a eu lieu le Week-end du 25/26 Juin, mais je tenais à laisser une trace quelque part de cet évenement. Oui, évenement, on peut le dire.
+
+Tout d'abord :
+la</summary>
+  </entry>
+</feed>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>I build stuff: vim</title>
+  <subtitle>Posts tagged with vim</subtitle>
+  <id>http://www.guillaume-barillot.com</id>
+  <link href="http://www.guillaume-barillot.com"/>
+  <link href="http://www.guillaume-barillot.com/tag/vim/feed.xml" rel="self"/>
+  <updated>2017-12-02T17:47:00Z</updated>
+  <author>
+    <name>Guillaume</name>
+  </author>
+  <entry>
+    <title>How to to make Vim to look like Atom</title>
+    <link rel="alternate" href="http://www.guillaume-barillot.com/2017/06/09/how-to-to-make-vim-to-look-like-atom/"/>
+    <id>http://www.guillaume-barillot.com/2017/06/09/how-to-to-make-vim-to-look-like-atom/</id>
+    <published>2017-06-09T15:23:00Z</published>
+    <updated>2022-05-05T09:01:28+02:00</updated>
+    <author>
+      <name>Guillaume</name>
+    </author>
+    <summary type="html">Why, and who is this for?
+
+I love Atom. Really. Nonetheless, it has the bad habit to turn my 8G RAM MacBook into a big lazy slug.
+Moving back to Sublime text is not really a good idea, since I’m a bit afraid of its future, at least for the V2 licence</summary>
+  </entry>
+</feed>

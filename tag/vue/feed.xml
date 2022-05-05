@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>I build stuff: vue</title>
+  <subtitle>Posts tagged with vue</subtitle>
+  <id>http://www.guillaume-barillot.com</id>
+  <link href="http://www.guillaume-barillot.com"/>
+  <link href="http://www.guillaume-barillot.com/tag/vue/feed.xml" rel="self"/>
+  <updated>2017-12-02T17:47:00Z</updated>
+  <author>
+    <name>Guillaume</name>
+  </author>
+  <entry>
+    <title>How to organize a Vue app in a Rails project using Webpack</title>
+    <link rel="alternate" href="http://www.guillaume-barillot.com/2017/12/02/how-to-organize-your-vue-files-in-a-rails-5-1-project-using-webpack/"/>
+    <id>http://www.guillaume-barillot.com/2017/12/02/how-to-organize-your-vue-files-in-a-rails-5-1-project-using-webpack/</id>
+    <published>2017-12-02T17:47:00Z</published>
+    <updated>2022-05-05T09:01:28+02:00</updated>
+    <author>
+      <name>Guillaume</name>
+    </author>
+    <summary type="html">So, you’re a Rails developer, and you started to play with Vue (maybe using the CDN / ES5 way?), everything looks so exciting, you’re even thinking about using it in your next project. Great! And then problems start to pop up. How do I structure my files</summary>
+  </entry>
+</feed>

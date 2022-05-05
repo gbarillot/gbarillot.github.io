@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>I build stuff: la-technique</title>
+  <subtitle>Posts tagged with la-technique</subtitle>
+  <id>http://www.guillaume-barillot.com</id>
+  <link href="http://www.guillaume-barillot.com"/>
+  <link href="http://www.guillaume-barillot.com/tag/la-technique/feed.xml" rel="self"/>
+  <updated>2017-12-02T17:47:00Z</updated>
+  <author>
+    <name>Guillaume</name>
+  </author>
+  <entry>
+    <title>Switch from Selenium+Firefox to Poltergeist+Phantomjs and speed up your test suite </title>
+    <link rel="alternate" href="http://www.guillaume-barillot.com/2013/03/23/Switch-from-SeleniumFirefox-to-PoltergeistPhantomjs-and-speed-up-your-test-suite-/"/>
+    <id>http://www.guillaume-barillot.com/2013/03/23/Switch-from-SeleniumFirefox-to-PoltergeistPhantomjs-and-speed-up-your-test-suite-/</id>
+    <published>2013-03-23T00:00:00Z</published>
+    <updated>2022-05-05T09:01:28+02:00</updated>
+    <author>
+      <name>Guillaume</name>
+    </author>
+    <summary type="html">Selenium is a great tool for integration testing but it has two major drawbacks :*it relies on Firefox engine, so every time Firefox updates, you have to cross your finger and praise your test suite will still be usable
+
+it is f*** slow
+Solve those 2</summary>
+  </entry>
+  <entry>
+    <title>Initialiser un repo Git pour les nuls</title>
+    <link rel="alternate" href="http://www.guillaume-barillot.com/2011/02/06/Initialiser-un-repo-Git-pour-les-nuls/"/>
+    <id>http://www.guillaume-barillot.com/2011/02/06/Initialiser-un-repo-Git-pour-les-nuls/</id>
+    <published>2011-02-06T00:00:00Z</published>
+    <updated>2022-05-05T09:01:28+02:00</updated>
+    <author>
+      <name>Guillaume</name>
+    </author>
+    <summary type="html">Admettons que vous soyez dans la situtation suivante :*Vous disposez d'un serveur dédié sur lequel vous hébergez (ou voulez héberger) une working copy (votre appli en prod, par exemple) et votre repository SVN
+
+*Vous voulez quitter SVN pour GIT, mais</summary>
+  </entry>
+  <entry>
+    <title>Cinq bonnes raisons d'aimer Ruby</title>
+    <link rel="alternate" href="http://www.guillaume-barillot.com/2011/01/27/Cinq-bonnes-raisons-daimer-Ruby/"/>
+    <id>http://www.guillaume-barillot.com/2011/01/27/Cinq-bonnes-raisons-daimer-Ruby/</id>
+    <published>2011-01-27T00:00:00Z</published>
+    <updated>2022-05-05T09:01:28+02:00</updated>
+    <author>
+      <name>Guillaume</name>
+    </author>
+    <summary type="html">Cela faisait très longtemps que j'avais ce post en tête, j'avais vraiment envie de mettre à plat quelques unes des raisons
+qui font qu'il m'est maintenant pénible de revenir à PHP (non, c'est pas un troll, j'explique, c'est tout !).
+Voici donc 5 aspects</summary>
+  </entry>
+  <entry>
+    <title>La meilleure façon (et la moins chère) de faire des screencasts au format flash</title>
+    <link rel="alternate" href="http://www.guillaume-barillot.com/2011/01/13/La-meilleure-faon-et-la-moins-chre-de-faire-des-screencasts-au-format-flash/"/>
+    <id>http://www.guillaume-barillot.com/2011/01/13/La-meilleure-faon-et-la-moins-chre-de-faire-des-screencasts-au-format-flash/</id>
+    <published>2011-01-13T00:00:00Z</published>
+    <updated>2022-05-05T09:01:28+02:00</updated>
+    <author>
+      <name>Guillaume</name>
+    </author>
+    <summary type="html">Cela m'aura finalement pris pas loin d'une journée avant d'arriver à une qualité optimale, mais il était vraiment important pour moi de réaliser des screencasts de bonne qualité afin de créer des rubriques d'aides dans mon prochain projet.
+
+Durant cette</summary>
+  </entry>
+  <entry>
+    <title>Excellent aide mémoire pour SVN</title>
+    <link rel="alternate" href="http://www.guillaume-barillot.com/2010/12/16/Excellent-aide-mmoire-pour-SVN/"/>
+    <id>http://www.guillaume-barillot.com/2010/12/16/Excellent-aide-mmoire-pour-SVN/</id>
+    <published>2010-12-16T00:00:00Z</published>
+    <updated>2022-05-05T09:01:28+02:00</updated>
+    <author>
+      <name>Guillaume</name>
+    </author>
+    <summary type="html">Si vous êtes comme moi à toujours rechercher “c'était quoi déja cette commande pour changer un repo ?” et autres manips simples mais pas assez courantes pour vous en rappeler concernant Subversion, je viens de trouver
+LA doc qu'il vous faut. Et en prime</summary>
+  </entry>
+  <entry>
+    <title>Dialoguer facilement avec les serveurs de paiement Paybox depuis Rails</title>
+    <link rel="alternate" href="http://www.guillaume-barillot.com/2010/11/30/Dialoguer-facilement-avec-les-serveurs-de-paiement-Paybox-depuis-Rails/"/>
+    <id>http://www.guillaume-barillot.com/2010/11/30/Dialoguer-facilement-avec-les-serveurs-de-paiement-Paybox-depuis-Rails/</id>
+    <published>2010-11-30T00:00:00Z</published>
+    <updated>2022-05-05T09:01:28+02:00</updated>
+    <author>
+      <name>Guillaume</name>
+    </author>
+    <summary type="html">Décidement, les Railers Lyonnais font dans la monétique, ces temps ci… Après l'excelllllent
+plugin pour SIPS/Atos écrit par
+Damien Mathieu il y a peu, j'ai eu cette semaine à m'interfacer avec cet autre grand prestataire du paiement en ligne Hexagonal</summary>
+  </entry>
+</feed>

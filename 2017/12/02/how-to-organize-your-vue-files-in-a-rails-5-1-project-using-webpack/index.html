@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>I build stuff: How to organize a Vue app in a Rails project using Webpack</title>
+<meta content='So, you&amp;rsquo;re a Rails developer, and you started to play with Vue (maybe using the CDN / ES5 way?), everything looks so exciting, you&amp;rsquo;r...' name='description'>
+<meta charset='utf-8'>
+<meta content='width=device-width, initial-scale=1.0' name='viewport'>
+<meta content='IE=edge' http-equiv='X-UA-Compatible'>
+<meta content='True' name='HandheldFriendly'>
+<meta content='UlIFhV8FstDJpoRovjvM0LzmXqguqwhyqNDL5DyKaGQ' name='google-site-verification'>
+<link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/feed.xml" />
+<link href="/images/favicon.ico" rel="icon" type="image/ico" />
+<link href="/stylesheets/application.css" rel="stylesheet" type="text/css" />
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<link href='//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400' rel='stylesheet' type='text/css'>
+</head>
+<body class='post-template nav-closed'>
+<div class='nav'>
+<h3 class='nav-title'>Menu</h3>
+<a class='nav-close' href='#'>
+<span class='hidden'>Close</span>
+</a>
+<ul>
+</ul>
+<a class='subscribe-button icon-feed' href='/feed.xml'>Subscribe</a>
+</div>
+<span class='nav-cover'></span>
+
+<div class='site-wrapper'>
+<div class='social'>
+<ul class='no-bullet'>
+<li>
+<a href="https://twitter.com/gbarillot" target="_blank"><i class='fa fa-twitter'></i>
+</a></li>
+<li>
+<a href="https://github.com/gbarillot" target="_blank"><i class='fa fa-github'></i>
+</a></li>
+<li>
+<script>
+  document.write('<a href="ma');
+  document.write('ilto');
+  document.write(':&#103;&#98;&#97;&#114;&#105;&#108;&#108;&#111;&#116;');
+  document.write('@');
+  document.write('&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">');
+  document.write("<i class='fa fa-envelope'></i>");
+  document.write('<\/a>');
+</script>
+<noscript>
+&#103;&#98;&#97;&#114;&#105;&#108;&#108;&#111;&#116; at &#103;&#109;&#97;&#105;&#108; dot &#99;&#111;&#109;
+</noscript>
+</li>
+<li>
+<a href="https://fr.linkedin.com/pub/guillaume-barillot/27/204/4b9" target="_blank"><i class='fa fa-linkedin'></i>
+</a></li>
+</ul>
+</div>
+<header class='main-header no-cover post-head'>
+<nav class='main-nav clearfix'>
+</nav>
+</header>
+<main class='content' role='main'>
+<article class='post'>
+<header class='post-header'>
+<h1 class='post-title'>How to organize a Vue app in a Rails project using Webpack</h1>
+<section class='post-meta'>
+<time class='post-date' datetime='2017-12-02'>
+02 December 2017
+</time>
+on <a href='/tag/vue/'>vue</a>
+</section>
+</header>
+<section class='post-content'><p>So, you&rsquo;re a Rails developer, and you started to play with Vue (maybe using the CDN / ES5 way?), everything looks so exciting, you&rsquo;re even thinking about using it in your next project. Great! And then problems start to pop up. How do I structure my files? How do I implement I18n? What about authentication? Pagination?&hellip; Surprisingly,
+I did not found a lot of resources related to Vue + Webpack + Rails, so I thought it might be a good idea to share some of the solutions I came up with.   </p>
+
+<p><strong>You&rsquo;ll find a demo app</strong> repository <a href="https://github.com/gbarillot/rails-vue-demo-app">here</a>, so you could play with the code and test it out.</p>
+
+<h2>1. The specs</h2>
+
+<p>Let&rsquo;s start with what I really wanted for this demo project:</p>
+
+<ul>
+<li>A user should be able to reload any page at any time. Same for the back button that should just work</li>
+<li>I18n is important, and it should be simple. Translations files are also rapidly growing up in a
+real app, we should be able to handle this in a real world scenario</li>
+<li>Pagination should work hand in hand with Kaminari</li>
+<li>Authentication, to access an Admin section</li>
+<li>Dynamic filters are mandatory in any Admin section, we should be able to use Ransack</li>
+<li>ActionCable is great, we should also handle it</li>
+</ul>
+
+<h2>2. Opinions and tools</h2>
+
+<ul>
+<li>With Sprockets not being able to deal with ES6 code nor .vue files, we&rsquo;ll have to use Webpack. Perfect timing, it has just been integrated in Rails a few months ago.</li>
+<li>The directory tree of Javacript files should be scalable and easy to grasp. Maintainability above everything.</li>
+<li>Client side generated routes must match with the ones you&rsquo;d get in regular Rails app, let&rsquo;s avoid headaches</li>
+<li>Avoid installing JS dependencies and plugins, as much as possible, except for what&rsquo;s officially supported/required by Vue</li>
+<li>Since most (actually: all) of the projects I work with are using Bootstrap, where it is required, let&rsquo;s use good ol&rsquo; JQuery for AJAX requests</li>
+<li>CSS will be handled by the asset pipeline, &ldquo;the classical way&rdquo;. Although you can add CSS inside of your .vue files, I can&rsquo;t find a single use case where it would be <strike>useful</strike> a good idea in the Web apps I build</li>
+<li>Vuex simplifies <strong>a lot</strong> of things, let&rsquo;s use it</li>
+<li>Components should not perform AJAX calls directly. Components should take care of &ldquo;view layout + behavior&rdquo;, and nothing else</li>
+<li>Strictly speaking, server side generated JSON is an &ldquo;API&rdquo;, but I won&rsquo;t build a pure RESTfull &ldquo;API&rdquo; here. I choose JSON builder for the demo, primarily because it is simple to actually see the JSON structure in the code, but feel free to use whatever tool is best for you. Anyway, I tend to think an &ldquo;SPA back-end&rdquo; != &ldquo;public API&rdquo;, but that&rsquo;s another debate</li>
+</ul>
+
+<h2>3. How it works</h2>
+
+<p>Admitting you already initialized your Rails project with:</p>
+<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>rails new myapp --webpack=vue
+</pre></td></tr></tbody></table>
+</div>
+
+<p>You should now have a &ldquo;javascript&rdquo; directory inside of &ldquo;/app&rdquo; and (awesome news!) you should get Webpack already setup with Vue.js and ready to roll. Let&rsquo;s now have a look at what we&rsquo;re going to put inside of this directory</p>
+
+<h4>3.1 Base directory structure</h4>
+<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12</pre></td><td class="code"><pre>/javacript
+    /packs
+        /components
+            /home
+                index.vue
+        /filters
+            string.js
+        /vuex
+            /stores
+            index.js
+        /application.js
+        /routes.js
+</pre></td></tr></tbody></table>
+</div>
+
+<ul>
+<li><p>components: will be structured quite close to what it would have been in the &ldquo;view&rdquo; rails dir, and will contains, well&hellip; components. Basically, your &ldquo;.vue&rdquo; files.</p></li>
+<li><p>filters: more or less like &ldquo;helpers&rdquo;, in the Rails world. I use it to format strings, dates&hellip; more about filters <a href="https://vuejs.org/v2/guide/filters.html">here</a>.</p></li>
+<li><p>vuex: the &ldquo;index.js&rdquo; file is used to register stores and is mostly populated with &ldquo;import&rdquo; statements. On the other hand, the stores directory hosts all, namespaced, stores.</p></li>
+<li><p>application.js: the main JS application boot loader, where you setup what you&rsquo;re going to use in the app (router, I18n&hellip;). This is where you setup I18n, and I also use this file to setup JQuery&rsquo;s AJAX calls</p></li>
+<li><p>routes.js: all of the routes for this app</p></li>
+</ul>
+
+<h4>3.2 Loading the app</h4>
+
+<p>Let&rsquo;s load this app using <a href="https://github.com/gbarillot/rails-vue-demo-app/blob/master/app/views/application.html.erb">application.html.erb</a>, and since we&rsquo;re loading server side stuff, let&rsquo;s also load translations using a <a href="https://github.com/gbarillot/rails-vue-demo-app/blob/master/app/helpers/application_helper.rb">small helper</a> that will translate the YAML file to JSON, so translations will be usable from Javascript. Right, doing it this way will imply a full page reload if the user changes its locale, but on the other hand you only load the current locale translations, and in the real world this is really important.</p>
+
+<h4>3.3 Server side routing</h4>
+
+<p>At the very beginning of the project, routes are quite simple :</p>
+<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10</pre></td><td class="code"><pre>Rails.application.routes.draw do
+
+  namespace :api do
+    resources :dashboard, only: [:index]
+  end
+
+  root :to =&gt; "application#index"
+  match "*path", to: "application#index", format: false, via: :get
+
+end
+</pre></td></tr></tbody></table>
+</div>
+
+<p>What we&rsquo;re saying to rails here is that, except for what&rsquo;s related to the API, and for every URL we&rsquo;re requesting, always use the same controller and action. Why? Because we&rsquo;re going to use &ldquo;real&rdquo; URLs (why using #hashbangs when we have <a href="https://caniuse.com/#feat=history">HTML5 history!</a>) so if the user reloads the page, we should always return the same file. What the user actually sees on the screen is now delegated to the Javascript app.</p>
+
+<h4>3.4 Authentication</h4>
+
+<p>Simple: plain ol&rsquo; Devise. Since this SPA is made to be loaded from a browser, there&rsquo;s no need to complicate things using JWT or OAuth for now. Authentication Data will be stored in a session cookie, which will be sent within AJAX requests.</p>
+
+<h4>3.5 Adding a sub section (aka: and admin section)</h4>
+
+<p>In a traditional app, you would add and &ldquo;admin&rdquo; namespace in the controllers, and then an &ldquo;admin&rdquo; section in the views, right? That&rsquo;s exactly what we&rsquo;re going to do in the javascript dir:</p>
+<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13</pre></td><td class="code"><pre>/javacript
+    /packs
+        /admin
+            /components
+            /filters
+            /vuex
+            /application.js
+            /routes.js        
+        /components
+        /filters
+        /vuex
+        /application.js
+        /routes.js
+</pre></td></tr></tbody></table>
+</div>
+
+<p>Basically, what we&rsquo;re doing here is to create a totally separated &ldquo;app&rdquo;, from a JS point of view. Doing it this way, you will load the Admin related stuff, and <em>only</em> the admin stuff. That means: routes, components, stores and while we&rsquo;re at it: translations. How do we load this JS app? Quite like we did for the front-end, but this time we&rsquo;ll use <a href="https://github.com/gbarillot/rails-vue-demo-app/blob/master/app/views/admin.html.erb">admin.html.erb</a>.</p>
+
+<h4>3.6 File names conventions</h4>
+
+<p>Let&rsquo;s have a quick look at what&rsquo;s inside the demo&rsquo;s component directory:</p>
+<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9</pre></td><td class="code"><pre>/javacript
+    /packs
+        /admin
+            /components
+                /musicians
+                    _form.vue
+                    edit.vue
+                    index.vue
+                    new.vue
+</pre></td></tr></tbody></table>
+</div>
+
+<p>Feels familiar, isn&rsquo;t it? Classical names apply perfectly here, too. Files like &ldquo;index.vue&rdquo; or &ldquo;edit.vue&rdquo; are higher order components (aka: pages), where you import child components, underscore prefixed (aka: partials in the &ldquo;old world&rdquo;).</p>
+
+<h4>3.7 Vuex</h4>
+
+<p>If you don&rsquo;t know what Vuex is, I would highly recommend to watch those <a href="https://youtu.be/dkFWOsKrPAI">2</a> <a href="https://youtu.be/kRI4YLMjgHQ">videos</a>. So, yes, let&rsquo;s use Vuex to handle all AJAX calls, as well as all state loads and modifications. If components may be seen like &ldquo;views + behaviour&rdquo;, you can see a store quite like &ldquo;controller + model&rdquo;. Controller because it handles the requests, and Model because it is manipulating the Data. Ok, ok, I know it&rsquo;s silly to try translating 1:1 Rails MVC to Vue, but if it may help you to understand how it globally works, let&rsquo;s see it this way to get started.</p>
+
+<p>Ok, so, what&rsquo;s in a Store? Basically: <a href="https://github.com/gbarillot/rails-vue-demo-app/blob/master/app/javascript/packs/vuex/stores/musician_store.js">this</a>. Aside from the obvious actions and mutations, you will sometime notice 2 extra mutations: <a href="https://github.com/gbarillot/rails-vue-demo-app/blob/master/app/javascript/packs/admin/vuex/stores/musician_store.js">progress and errors</a> when I use forms. This leads us directly to the next section:</p>
+
+<h4>3.8 User interaction</h4>
+
+<p>One thing that is quite disturbing working with an SPA is that the browser is not helping us. There&rsquo;s no spinner at the top of the tab, and the page is not passing through the &ldquo;click -&gt; spinner is spinning -&gt; refresh -&gt; blank page -&gt; repaint&rdquo; cycle. Nonetheless, we have to take care of our user, and let him understand what&rsquo;s going on when submitting a form. That&rsquo;s why I created 2 extra mutations in stores that are using a form:</p>
+
+<ul>
+<li>progress: variable to track the current state of the request (start / loading / success / failed)</li>
+<li>errors: calls a <a href="https://github.com/gbarillot/rails-vue-demo-app/blob/master/app/javascript/packs/admin/helpers/index.js">little helper</a> to show up form errors</li>
+</ul>
+
+<p>A bit of CSS on top of that and now your users understand what&rsquo;s happening. You also avoid multiple form submissions, and this is not just a designer&rsquo;s whim.</p>
+
+<h4>3.9 Kaminari</h4>
+
+<p>Pagination is made using a <a href="https://github.com/gbarillot/rails-vue-demo-app/blob/master/app/javascript/packs/admin/components/shared/_pagination.vue">component</a>, client side, as well as adding a short snippet in the server side generated <a href="https://github.com/gbarillot/rails-vue-demo-app/blob/master/app/views/api/admin/musicians/index.json.jbuilder">JSON</a>. Drop this component in a &ldquo;/components/shared&rdquo; directory, and now all you have to do is calling this in some parent component when you need it:</p>
+<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>&lt;pagination :pagination='pagination'&gt;&lt;/pagination&gt;
+</pre></td></tr></tbody></table>
+</div>
+
+<p>(Mmh, that&rsquo;s a lot of &ldquo;pagination&rdquo; for just one line. Don&rsquo;t worry, you&rsquo;ll found this pattern pretty common when passing data down to components).</p>
+
+<h4>3.10 Ransack and dynamic filters</h4>
+
+<p>Quite like for pagination, the base idea is to sequentially:</p>
+
+<ul>
+<li>Update the query string using user parameters on form submission</li>
+<li>When a URL change is detected, call an action in the store using the Query string as an argument</li>
+<li>Request data from the server using this URL / Query string</li>
+<li>Finally, mutate the state with the data you just got back from server</li>
+</ul>
+
+<p>What is a bit tricky here is that Vue sees query strings using arrays as JS Objects, so I had to tweak query string construction a little bit. In the end I got it working, now you just have to follow the steps to reuse <a href="https://github.com/gbarillot/rails-vue-demo-app/blob/master/app/javascript/packs/admin/components/musicians/_filters.vue">this component</a> to fit your needs.</p>
+
+<h4>3.11 ActionCable and Vue</h4>
+
+<p>You have to set things up exactly the same way you&rsquo;d do in a classical app, the only thing we&rsquo;re going to add here is about informing Vue when new messages are coming. This is done using an Event Bus. With this Event Bus mounted, the <a href="https://github.com/gbarillot/rails-vue-demo-app/blob/master/app/javascript/packs/admin/components/modals/chat.vue">chat component</a> will be notified each time there is a new event. On the other side, when you want to push new messages out, simply use the globally accessible &ldquo;App&rdquo; Object you created in the asset pipeline&rsquo;s powered <a href="https://github.com/gbarillot/rails-vue-demo-app/blob/master/app/assets/javascripts/channels/chat.js">channel</a>.</p>
+
+<h2>4. Packing it up</h2>
+
+<p>Wow, that&rsquo;s quite a lot of stuff for a blog post! I really encourage you to clone the demo <a href="https://github.com/gbarillot/rails-vue-demo-app/">repo</a> and play with the code.</p>
+
+<p>Now, if I had to summarize my thoughts about building a Single Page Apps with Rails + Vue.js + Webpacker, three things would come up:</p>
+
+<ul>
+<li><p><strong>Rails is an awesome starting point for an SPA</strong>: I read sooooo many tutorials and blog posts about configuring Webpack that I was stuck with this one question: &ldquo;how and where do I actually start?&rdquo;. Now, with Webpacker and Yarn included right in the Framework, there&rsquo;s nothing to fear, everything works out of the box. Testing is also improved, since you can now test each.and.every.part of the backend, no need to spin up utter slow layers like Selenium to test views output, and testing JSON is trivial.   </p></li>
+<li><p><strong>Vue is a fabulous JS framework</strong>: I feel like it has picked up the best ideas from React (Component based, Flux pattern) and the best ideas from Angular (templates with custom markup, eg: v-if, v-for&hellip;). Using Webpack to compile .vue files and Vuex, in the end, I managed to get something fully scalable as my code grows, and <em>really</em> maintainable with not that much of code, compared to a classical app.</p></li>
+<li><p><strong>A Single Page App is quite a weird beast</strong>: The Web has not been built for SPA&rsquo;s, neither browsers were. Simple things in the &ldquo;old world&rdquo; may become quite tricky very fast (pagination+ransack, or even a simple form submission!), as in the same time complicated things now become easy as pie (updating the other side of the UI on the fly when a variable is updated in the store, for example). What I <em>really</em> appreciate is that the Javascript section is now under control. There&rsquo;s no longer JQuery soup boiling in the asset pipeline, with nasty and untestable bugs simmering in. If it was for one argument, it would be this one. If you&rsquo;re really coding an &ldquo;App&rdquo; (not a &ldquo;content based website&rdquo;, in this case, I&rsquo;d advise to stick to regular server side generated HTML), it&rsquo;s worth writing a few more lines of code at the beginning. In the end, you&rsquo;ll win.</p></li>
+</ul>
+</section>
+<footer class='post-footer'>
+<section class='author'>
+<h4>
+<a href='/author/guillaume/'>Guillaume</a>
+</h4>
+<p></p>
+Read
+<a href='/author/guillaume/'>more posts</a>
+by this author.
+</section>
+<section class='share'>
+<h4>Share this post</h4>
+<a class='icon-twitter' href='https://twitter.com/share?text=How to organize a Vue app in a Rails project using Webpack&amp;amp;url=http://www.guillaume-barillot.com/2017/12/02/how-to-organize-your-vue-files-in-a-rails-5-1-project-using-webpack/' onclick='window.open(this.href, &#39;twitter-share&#39;, &#39;width=550,height=235&#39;);return false;'>
+<span class='hidden'>Twitter</span>
+</a>
+<a class='icon-facebook' href='https://www.facebook.com/sharer/sharer.php?u=http://www.guillaume-barillot.com/2017/12/02/how-to-organize-your-vue-files-in-a-rails-5-1-project-using-webpack/' onclick='window.open(this.href, &#39;facebook-share&#39;,&#39;width=580,height=296&#39;);return false;'>
+<span class='hidden'>Facebook</span>
+</a>
+<a class='icon-google-plus' href='https://plus.google.com/share?url=http://www.guillaume-barillot.com/2017/12/02/how-to-organize-your-vue-files-in-a-rails-5-1-project-using-webpack/' onclick='window.open(this.href, &#39;google-plus-share&#39;, &#39;width=490,height=530&#39;);return false;'>
+<span class='hidden'>Google+</span>
+</a>
+</section>
+</footer>
+</article>
+</main>
+<aside class='read-next'>
+<a class='no-cover read-next-story' href='/2017/06/09/how-to-to-make-vim-to-look-like-atom/'>
+<section class='post'>
+<h2>How to to make Vim to look like Atom</h2>
+<p>Why, and who is this for? I love Atom. Really. Nonetheless, it has the bad habit to turn my&hellip;</p>
+</section>
+</a>
+</aside>
+
+<footer class='site-footer clearfix'>
+<section class='copyright'>
+<a href='/'>I build stuff</a>
+&copy;
+2022
+</section>
+<section class='poweredby'>
+Casper theme powered by
+<a href='https://ghost.org'>Ghost</a>
+</section>
+</footer>
+</div>
+<script src="/javascripts/application.js" type="text/javascript"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  
+  ga('create', 'UA-37821599-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</body>
+</html>

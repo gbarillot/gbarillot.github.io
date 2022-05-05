@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>I build stuff: linux</title>
+  <subtitle>Posts tagged with linux</subtitle>
+  <id>http://www.guillaume-barillot.com</id>
+  <link href="http://www.guillaume-barillot.com"/>
+  <link href="http://www.guillaume-barillot.com/tag/linux/feed.xml" rel="self"/>
+  <updated>2017-12-02T17:47:00Z</updated>
+  <author>
+    <name>Guillaume</name>
+  </author>
+  <entry>
+    <title>Fifteen years using linux... and I just switched to a Mac</title>
+    <link rel="alternate" href="http://www.guillaume-barillot.com/2014/02/22/Fifteen-years-using-linux-and-I-just-switched-to-a-Mac/"/>
+    <id>http://www.guillaume-barillot.com/2014/02/22/Fifteen-years-using-linux-and-I-just-switched-to-a-Mac/</id>
+    <published>2014-02-22T00:00:00Z</published>
+    <updated>2022-05-05T09:01:28+02:00</updated>
+    <author>
+      <name>Guillaume</name>
+    </author>
+    <summary type="html">I still remember my first met with Linux, back in 1998… I instantly embraced the Open Source philosophy. I also doomed the data on my hard drive and it took me 2 days of tough work to get this Red Hat 5.1 up and running, but I really enjoyed this stuff</summary>
+  </entry>
+  <entry>
+    <title>Sauvegarder ses données en une ligne (et en 20 secondes) avec Rsync</title>
+    <link rel="alternate" href="http://www.guillaume-barillot.com/2010/03/10/Sauvegarder-ses-donnes-en-une-ligne-et-en-20-secondes-avec-Rsync/"/>
+    <id>http://www.guillaume-barillot.com/2010/03/10/Sauvegarder-ses-donnes-en-une-ligne-et-en-20-secondes-avec-Rsync/</id>
+    <published>2010-03-10T00:00:00Z</published>
+    <updated>2022-05-05T09:01:28+02:00</updated>
+    <author>
+      <name>Guillaume</name>
+    </author>
+    <summary type="html">Les sauvegardes, c’est vital ; et avoir à tout moment un backup récent est tout aussi crucial, qu’important et… négligé. Mais on ne peut raisonnablement pas re-copier l’intégralité de son serveur bien au chaud sur son PC par FTP ?! Cela ne prend rien</summary>
+  </entry>
+  <entry>
+    <title>Installer Ruby on Rails chez OVH en 5mn chrono</title>
+    <link rel="alternate" href="http://www.guillaume-barillot.com/2009/07/20/Installer-Ruby-on-Rails-chez-OVH-en-5mn-chrono/"/>
+    <id>http://www.guillaume-barillot.com/2009/07/20/Installer-Ruby-on-Rails-chez-OVH-en-5mn-chrono/</id>
+    <published>2009-07-20T00:00:00Z</published>
+    <updated>2022-05-05T09:01:28+02:00</updated>
+    <author>
+      <name>Guillaume</name>
+    </author>
+    <summary type="html">Vous avez un serveur dédié (RPS dans mon cas) sous Ubuntu (je suppose que c’est pareil pour Debian), et vous avez envie d’y installer Ruby on Rails ? Bonne idée ! D’autant que c’est vraiment pas compliqué
+
+Tout d’abord, fuyez les versions installées via</summary>
+  </entry>
+</feed>

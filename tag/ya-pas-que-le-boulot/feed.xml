@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>I build stuff: ya-pas-que-le-boulot</title>
+  <subtitle>Posts tagged with ya-pas-que-le-boulot</subtitle>
+  <id>http://www.guillaume-barillot.com</id>
+  <link href="http://www.guillaume-barillot.com"/>
+  <link href="http://www.guillaume-barillot.com/tag/ya-pas-que-le-boulot/feed.xml" rel="self"/>
+  <updated>2017-12-02T17:47:00Z</updated>
+  <author>
+    <name>Guillaume</name>
+  </author>
+  <entry>
+    <title>Rulu 2011 : la communauté Ruby (on Rails) Européenne vaut vraiment le détour</title>
+    <link rel="alternate" href="http://www.guillaume-barillot.com/2011/07/02/Rulu-2011-la-communaut-Ruby-on-Rails-Europenne-vaut-vraiment-le-dtour/"/>
+    <id>http://www.guillaume-barillot.com/2011/07/02/Rulu-2011-la-communaut-Ruby-on-Rails-Europenne-vaut-vraiment-le-dtour/</id>
+    <published>2011-07-02T00:00:00Z</published>
+    <updated>2022-05-05T09:01:28+02:00</updated>
+    <author>
+      <name>Guillaume</name>
+    </author>
+    <summary type="html">Un p'tit peu de retard dans la restranscription de RULU, la conf’ Ruby (on Rails) Lyonnaise qui a eu lieu le Week-end du 25/26 Juin, mais je tenais à laisser une trace quelque part de cet évenement. Oui, évenement, on peut le dire.
+
+Tout d'abord :
+la</summary>
+  </entry>
+  <entry>
+    <title>Vous faites quoi le 25/26 Juin ?</title>
+    <link rel="alternate" href="http://www.guillaume-barillot.com/2011/04/11/Vous-faites-quoi-le-2526-Juin-/"/>
+    <id>http://www.guillaume-barillot.com/2011/04/11/Vous-faites-quoi-le-2526-Juin-/</id>
+    <published>2011-04-11T00:00:00Z</published>
+    <updated>2022-05-05T09:01:28+02:00</updated>
+    <author>
+      <name>Guillaume</name>
+    </author>
+    <summary type="html">Le Week-end du 25/26 Juin se déroulera Ruby Lugdunum, la conf. Lyonnaise autour de Ruby on Rails ! Au programme sont d'ors et déja confirmé Sven Fuchs (Rails Core contributor) et Konstantin Haase (l'un des principaux Developpeur de Sinatra). Il y aura</summary>
+  </entry>
+  <entry>
+    <title>Apéro Ruby jeudi 24 Mars à Lyon</title>
+    <link rel="alternate" href="http://www.guillaume-barillot.com/2011/03/22/Apro-Ruby-jeudi-24-Mars-Lyon/"/>
+    <id>http://www.guillaume-barillot.com/2011/03/22/Apro-Ruby-jeudi-24-Mars-Lyon/</id>
+    <published>2011-03-22T00:00:00Z</published>
+    <updated>2022-05-05T09:01:28+02:00</updated>
+    <author>
+      <name>Guillaume</name>
+    </author>
+    <summary type="html">Railers passionnés, développeurs Web de tous horizons et tous niveaux en quête d'infos ou bien simplement curieux à la recherche de développeurs, voila une bonne occasion de rencontrer
+la communauté Ruby Lyonnaise : Jeudi 24 mars à l’
+Antre Autre, Lyon</summary>
+  </entry>
+  <entry>
+    <title>A quoi ça sert "une maison de disque" ?!</title>
+    <link rel="alternate" href="http://www.guillaume-barillot.com/2011/02/12/A-quoi-a-sert-une-maison-de-disque-/"/>
+    <id>http://www.guillaume-barillot.com/2011/02/12/A-quoi-a-sert-une-maison-de-disque-/</id>
+    <published>2011-02-12T00:00:00Z</published>
+    <updated>2022-05-05T09:01:28+02:00</updated>
+    <author>
+      <name>Guillaume</name>
+    </author>
+    <summary type="html">Quand je lis ce
+genre d'article, je suis certes un peu triste, parce qu'il y a des gens passionnés et compétents qui vont perdre leur boulot, certes. Toutefois, je ne peux m'empêcher de réagir parce qu'un des ces jours, il va bien falloir que “l'industrie</summary>
+  </entry>
+  <entry>
+    <title>Meetup Ruby à Chambéry</title>
+    <link rel="alternate" href="http://www.guillaume-barillot.com/2011/01/24/Meetup-Ruby-Chambry/"/>
+    <id>http://www.guillaume-barillot.com/2011/01/24/Meetup-Ruby-Chambry/</id>
+    <published>2011-01-24T00:00:00Z</published>
+    <updated>2022-05-05T09:01:28+02:00</updated>
+    <author>
+      <name>Guillaume</name>
+    </author>
+    <summary type="html">Meetup fort agréable ce week-end à Chambéry, dans les locaux de
+leadformance. Les différents Talks portaient sur l'architecture, JRuby (perso : ‘pas encore convaincu de la chose), le caching, la sécurité (toujours interessant comme sujet) et
+Coffeescript</summary>
+  </entry>
+  <entry>
+    <title>Non, rien de rien... non, je n'y comprend plus rien</title>
+    <link rel="alternate" href="http://www.guillaume-barillot.com/2010/11/08/Non-rien-de-rien-non-je-ny-comprend-plus-rien/"/>
+    <id>http://www.guillaume-barillot.com/2010/11/08/Non-rien-de-rien-non-je-ny-comprend-plus-rien/</id>
+    <published>2010-11-08T00:00:00Z</published>
+    <updated>2022-05-05T09:01:28+02:00</updated>
+    <author>
+      <name>Guillaume</name>
+    </author>
+    <summary type="html">Petite devinette. Qui était interviewé cette après midi sur BFM et a déclaré distinctement, avec conviction et (apparemment) en pleine possession de ses facultés :&amp;gt;Je pense que dans les années qui viennent il y aura des formules d'abonnement avec lesquelles</summary>
+  </entry>
+</feed>

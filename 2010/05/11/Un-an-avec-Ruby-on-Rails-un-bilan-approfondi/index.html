@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>I build stuff: Un an avec Ruby on Rails : un bilan approfondi</title>
+<meta content='Celà fait maintenant un an (et une ‘tite quinzaine de jours…) que j’ai découvert Ruby on Rails, et le moment me semble idéal pour faire un vrai ...' name='description'>
+<meta charset='utf-8'>
+<meta content='width=device-width, initial-scale=1.0' name='viewport'>
+<meta content='IE=edge' http-equiv='X-UA-Compatible'>
+<meta content='True' name='HandheldFriendly'>
+<meta content='UlIFhV8FstDJpoRovjvM0LzmXqguqwhyqNDL5DyKaGQ' name='google-site-verification'>
+<link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/feed.xml" />
+<link href="/images/favicon.ico" rel="icon" type="image/ico" />
+<link href="/stylesheets/application.css" rel="stylesheet" type="text/css" />
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<link href='//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400' rel='stylesheet' type='text/css'>
+</head>
+<body class='post-template nav-closed'>
+<div class='nav'>
+<h3 class='nav-title'>Menu</h3>
+<a class='nav-close' href='#'>
+<span class='hidden'>Close</span>
+</a>
+<ul>
+</ul>
+<a class='subscribe-button icon-feed' href='/feed.xml'>Subscribe</a>
+</div>
+<span class='nav-cover'></span>
+
+<div class='site-wrapper'>
+<div class='social'>
+<ul class='no-bullet'>
+<li>
+<a href="https://twitter.com/gbarillot" target="_blank"><i class='fa fa-twitter'></i>
+</a></li>
+<li>
+<a href="https://github.com/gbarillot" target="_blank"><i class='fa fa-github'></i>
+</a></li>
+<li>
+<script>
+  document.write('<a href="ma');
+  document.write('ilto');
+  document.write(':&#103;&#98;&#97;&#114;&#105;&#108;&#108;&#111;&#116;');
+  document.write('@');
+  document.write('&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">');
+  document.write("<i class='fa fa-envelope'></i>");
+  document.write('<\/a>');
+</script>
+<noscript>
+&#103;&#98;&#97;&#114;&#105;&#108;&#108;&#111;&#116; at &#103;&#109;&#97;&#105;&#108; dot &#99;&#111;&#109;
+</noscript>
+</li>
+<li>
+<a href="https://fr.linkedin.com/pub/guillaume-barillot/27/204/4b9" target="_blank"><i class='fa fa-linkedin'></i>
+</a></li>
+</ul>
+</div>
+<header class='main-header no-cover post-head'>
+<nav class='main-nav clearfix'>
+</nav>
+</header>
+<main class='content' role='main'>
+<article class='post'>
+<header class='post-header'>
+<h1 class='post-title'>Un an avec Ruby on Rails : un bilan approfondi</h1>
+<section class='post-meta'>
+<time class='post-date' datetime='2010-05-11'>
+11 May 2010
+</time>
+on <a href='/tag/les-gouts-et-les-couleurs/'>les-gouts-et-les-couleurs</a>, <a href='/tag/ruby-on-rails/'>ruby-on-rails</a>
+</section>
+</header>
+<section class='post-content'><p>Celà fait maintenant un an (et une ‘tite quinzaine de jours…) que j’ai découvert Ruby on Rails, et le moment me semble idéal pour faire un vrai bon bilan en profondeur de cette année de travail. Je serais d’abord direct, clair et concis, avant de m’étendre un peu plus dans la conclusion.</p>
+
+<p><strong># Ce qui est très bien :</strong></p>
+
+<ul>
+<li><p>La documentation : oui, je commence directement par ce point, qui me semble es-sen-tiel, et où Rails est tout simplement époustouflant. Grâce à un travail rien moins que
+<a href="http://api.rubyonrails.org/">monumental</a> de documentation et de
+<a href="http://guides.rubyonrails.org/">vulgarisation</a>, la courbe d’apprentissage est remarquablement courte, et se passe vraiment bien.</p></li>
+<li><p>Ruby : au début, je me tournais plutôt vers les Framework PHP genre Cake ou Symphony, par peur d’apprendre encore un nouveau language. En fait, c’est bien le contraire qui s’est passé : j’ai très très vite appris à me débrouiller avec Ruby et tout aussi vite oublié PHP (non, résister à la tentation, ne pas dire du mal des vieux languages plein de rustines… hem…)</p></li>
+<li><p>MVC : Modèle, Vue, Controleur. Heuuu, “what else” ?</p></li>
+<li><p>RJS : Ajax, en plus d’accélérer les applications (pas besoin de recharger toute la page), apporte un côté ‘bling bling’ dont tous les clients raffolent. Le seul truc, c’est que c’est un peu long et parfois bien tordu à concevoir sans Framework. Avec Rails, les RJS et Prototype, badaboum… on en vient presque à oublier qu’on fait de l’AJAX tellement c’est simple et vite mis en place.</p></li>
+<li><p>REST : la façon dont sont implémenté les routes, l’URL rewriting et les interactions avec les controlleurs sont tout simplement gén-iales. Avec RESTfull routing, les adresses sont claires (et courtes !) et vous savez tout de suite ou vous emmène chaque URL.</p></li>
+<li><p>I18n : L’internationalisation d’une appli peut vite devenir laborieuse. Aucun souci ici, tout est prévu depuis le départ pour vous simplifier la tâche. Dates, heures, expressions, requêtes… il suffit de respecter une poignée de convention et le Framework s’occupe de toutes vos traductions. Trop pratique !</p></li>
+</ul>
+
+<p><strong># Ce qui est bien :</strong></p>
+
+<ul>
+<li><p>La souplesse : voila bien un argument contre Rails que j’ai souvent pu lire : “tu es obligé de nommer tes tables d’une certaine façon” ou encore “je veux appeler mes clés étrangères autrement que ‘foreignkey<em>id’” et autres aneries… En fait, Rails vous pousse juste à utiliser quelques conventions simples afin de vous faire gagner un MAX de temps. Si vous voulez _vraiment</em> faire autrement, ou tout simplement que vous devez reprendre un projet existant, il sera toujours extremement simple d’adapter vos propres conventions au sein du Framework. Vous n’avez vraiment aucun souci à vous faire, Rails n’est absolument pas psycho-rigide !</p></li>
+<li><p>Active Record : comment parler de Rails sans Active Record ??! Fini les tableaux à 153 dimensions de PHP et le XML des ORM de J2EE. Avec ActiveRecord, tout devient objet, et ridiculement simple à manipuler. Tout simplement génial.</p></li>
+</ul>
+
+<p>-
+<a href="http://haml-lang.com/">HAML</a> : alors ça c’est un effet de bord assez inattendu. Découvert par hasard avec le plus grand des dubitatismes (ne me parlez pas de Smarty et autre PHP template…), j’ai finalement adopté sans aucune réserve ce language de template. Je retrouve enfin la lisibilité de Python, même avec des mises en pages franchement complexes bourrées d’AJAX, le template reste clair et limpide. Comme tout ce qui tourne autour de Rails, le temps d’apprentissage est ultra court, et l’essayer c’est l’adopter ! Note : il parait qu’il existe des bindings pour PHP, à voir…</p>
+
+<p><strong># Ce qui est moins bien :</strong></p>
+
+<ul>
+<li><p>Mauvais cross platform. Oui, il existe bien un genre de Wamp/EasyPHP pour Windows (
+<a href="http://instantrails.rubyforge.org/wiki/wiki.pl">Instant Rails</a>), qui est très pratique pour découvrir Rails et faire ses premiers pas, mais on en trouve très-très vite les limites. Si vous voulez éviter toute surprise dans le déploiement de votre appli, et souhaitez profiter pleinement d’un environnement serveur puissant et souple, il vous faut une base Unix. Mac ou Linux ou BSD ou ce que vous voulez, mais pas Windows.</p></li>
+<li><p>L’hébergement : le mutualisé avec Rails, ça n’existe pas. Ou alors, c’est pas terrible et de toute façon toujours trop cher. Pour disposer d’une plateforme fiable et sérieuse, vous devrez obligatoirement vous acquitter d’au moins une quarantaine d’euros/mois pour un VPS, et vous taper l’install à la mano qui va avec. Si vous ne connaissez rien à la maintenance d’un serveur dédié sous Linux, ça va être le moment de vous y mettre…</p></li>
+<li><p>C’est lent. (soupir…) j’aurais tellement aimé vous dire que c’est faux, mais, malheureusement : non. C’est lent. Bon, ‘faut toujours comparer ce qui est comparable, c’est
+<a href="http://avnetlabs.com/php/php-framework-comparison-benchmarks">ni plus ni moins lent qu’un autre Framework</a> et face à Cake ou Django, on est dans les clous, ni mieux ni pire. Par contre, ne pas perdre de vue qu’il va falloir oublier les hébergement à 50 Euros/an tournant avec 512 Mo de RAM. Ceci étant, les fonctionnalitées de cache sont vraiment rapides et diablement efficaces à déploier. Pour peu que votre appli ne soit pas trop exigeante en terme d’interactivité, au final, il y a la possibilité d’égaler les perfs d’une page HTML statique (si, si…)</p></li>
+</ul>
+
+<p><strong># En conclusion :</strong></p>
+
+<p><strong>Rails est parfait si :</strong></p>
+
+<ul>
+<li>Vous voulez proposer rapidement une appli type SaaS et vous disposez de ressources hyper limitées. Ce qui était d’ailleurs exactement le cas de figure lorsque DHH a créé le Framework, et qui est aussi mon cas.</li>
+</ul>
+
+<p><strong>Rails est très bien si :</strong></p>
+
+<ul>
+<li><p>Vous cherchez une nouvelle techno pour remplacer le socle de travail de base de votre entreprise. Puissant, structurant, avec un environnement de tests unitaires, I18n, Open Source… J’entends et lis souvent que Rails est le futur “J2EE Killer”. Vous voulez mon avis ? C’est très probablement vrai.</p></li>
+<li><p>Vous avez toutes les casquettes et cherchez un couteau suisse pour des développements Web vite-faits/bien-faits dans des projets courts et “one-shot”.</p></li>
+</ul>
+
+<p><strong>Rails ne répond pas à vos besoins si :</strong></p>
+
+<ul>
+<li>Votre but est de gagner rapidement de l’argent en répondant à un besoin ultra courant
+<strong>.</strong>
+Typiquement : du E-Commerce ou du site vitrine à la chaine. Dans ce cas, restez avec Joomla ou Wordpress et ne vous embarquez pas dans de longs et couteux développements sur-mesure, ça ne sert vraiment à rien de chercher midi à 14 heures (sauf pour la beauté du geste, bien sur, mais j’ai dit “gagner de l’argent”, et pas “se faire plaisir”. Ceci dit, à vous de voir…).</li>
+</ul>
+
+<p>Voila pour ce bilan, j’espère vous avoir donné envie de découvrir ce merveilleux environnement de travail, qui ne cesse de m’impressionner par son côté pragmatique, et qui me permet de coder 3 à 4 fois plus vite qu’en PHP. Ce qui était avant hors de porté pour un developpeur seul est devenu tout à fait possible, et je peux désormais me concentrer pleinement sur le fond : le Design, l&#39;interactivité des interfaces et les aspects métiers de chaque application.</p>
+</section>
+<footer class='post-footer'>
+<section class='author'>
+<h4>
+<a href='/author/guillaume/'>Guillaume</a>
+</h4>
+<p></p>
+Read
+<a href='/author/guillaume/'>more posts</a>
+by this author.
+</section>
+<section class='share'>
+<h4>Share this post</h4>
+<a class='icon-twitter' href='https://twitter.com/share?text=Un an avec Ruby on Rails : un bilan approfondi&amp;amp;url=http://www.guillaume-barillot.com/2010/05/11/Un-an-avec-Ruby-on-Rails-un-bilan-approfondi/' onclick='window.open(this.href, &#39;twitter-share&#39;, &#39;width=550,height=235&#39;);return false;'>
+<span class='hidden'>Twitter</span>
+</a>
+<a class='icon-facebook' href='https://www.facebook.com/sharer/sharer.php?u=http://www.guillaume-barillot.com/2010/05/11/Un-an-avec-Ruby-on-Rails-un-bilan-approfondi/' onclick='window.open(this.href, &#39;facebook-share&#39;,&#39;width=580,height=296&#39;);return false;'>
+<span class='hidden'>Facebook</span>
+</a>
+<a class='icon-google-plus' href='https://plus.google.com/share?url=http://www.guillaume-barillot.com/2010/05/11/Un-an-avec-Ruby-on-Rails-un-bilan-approfondi/' onclick='window.open(this.href, &#39;google-plus-share&#39;, &#39;width=490,height=530&#39;);return false;'>
+<span class='hidden'>Google+</span>
+</a>
+</section>
+</footer>
+</article>
+</main>
+<aside class='read-next'>
+<a class='no-cover read-next-story' href='/2010/03/10/Sauvegarder-ses-donnes-en-une-ligne-et-en-20-secondes-avec-Rsync/'>
+<section class='post'>
+<h2>Sauvegarder ses données en une ligne (et en 20 secondes) avec Rsync</h2>
+<p>Les sauvegardes, c’est vital ; et avoir à tout moment un backup récent est tout aussi crucial, qu’important et…&hellip;</p>
+</section>
+</a>
+<a class='no-cover prev read-next-story' href='/2010/06/01/Calendar_date_select-en-franais-et-au-format-24h/'>
+<section class='post'>
+<h2>Calendar_date_select en français et au format 24h</h2>
+<p>Obtenir des dates correctement formatées dans une interface “user-friendly” est très souvent utile au sein d’une application. Pour arriver&hellip;</p>
+</section>
+</a>
+</aside>
+
+<footer class='site-footer clearfix'>
+<section class='copyright'>
+<a href='/'>I build stuff</a>
+&copy;
+2022
+</section>
+<section class='poweredby'>
+Casper theme powered by
+<a href='https://ghost.org'>Ghost</a>
+</section>
+</footer>
+</div>
+<script src="/javascripts/application.js" type="text/javascript"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  
+  ga('create', 'UA-37821599-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</body>
+</html>

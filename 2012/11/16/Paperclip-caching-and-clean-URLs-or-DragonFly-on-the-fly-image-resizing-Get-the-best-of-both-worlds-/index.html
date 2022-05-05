@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>I build stuff: Paperclip caching and clean URLs or DragonFly on the fly image resizing ? Get the best of both worlds !</title>
+<meta content='When it came across image manipulation using Rails, I had to make a choice : Paperclip to handle high traffic/popular websites, and DragonFly fo...' name='description'>
+<meta charset='utf-8'>
+<meta content='width=device-width, initial-scale=1.0' name='viewport'>
+<meta content='IE=edge' http-equiv='X-UA-Compatible'>
+<meta content='True' name='HandheldFriendly'>
+<meta content='UlIFhV8FstDJpoRovjvM0LzmXqguqwhyqNDL5DyKaGQ' name='google-site-verification'>
+<link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/feed.xml" />
+<link href="/images/favicon.ico" rel="icon" type="image/ico" />
+<link href="/stylesheets/application.css" rel="stylesheet" type="text/css" />
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<link href='//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400' rel='stylesheet' type='text/css'>
+</head>
+<body class='post-template nav-closed'>
+<div class='nav'>
+<h3 class='nav-title'>Menu</h3>
+<a class='nav-close' href='#'>
+<span class='hidden'>Close</span>
+</a>
+<ul>
+</ul>
+<a class='subscribe-button icon-feed' href='/feed.xml'>Subscribe</a>
+</div>
+<span class='nav-cover'></span>
+
+<div class='site-wrapper'>
+<div class='social'>
+<ul class='no-bullet'>
+<li>
+<a href="https://twitter.com/gbarillot" target="_blank"><i class='fa fa-twitter'></i>
+</a></li>
+<li>
+<a href="https://github.com/gbarillot" target="_blank"><i class='fa fa-github'></i>
+</a></li>
+<li>
+<script>
+  document.write('<a href="ma');
+  document.write('ilto');
+  document.write(':&#103;&#98;&#97;&#114;&#105;&#108;&#108;&#111;&#116;');
+  document.write('@');
+  document.write('&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">');
+  document.write("<i class='fa fa-envelope'></i>");
+  document.write('<\/a>');
+</script>
+<noscript>
+&#103;&#98;&#97;&#114;&#105;&#108;&#108;&#111;&#116; at &#103;&#109;&#97;&#105;&#108; dot &#99;&#111;&#109;
+</noscript>
+</li>
+<li>
+<a href="https://fr.linkedin.com/pub/guillaume-barillot/27/204/4b9" target="_blank"><i class='fa fa-linkedin'></i>
+</a></li>
+</ul>
+</div>
+<header class='main-header no-cover post-head'>
+<nav class='main-nav clearfix'>
+</nav>
+</header>
+<main class='content' role='main'>
+<article class='post'>
+<header class='post-header'>
+<h1 class='post-title'>Paperclip caching and clean URLs or DragonFly on the fly image resizing ? Get the best of both worlds !</h1>
+<section class='post-meta'>
+<time class='post-date' datetime='2012-11-16'>
+16 November 2012
+</time>
+on <a href='/tag/ruby-on-rails/'>ruby-on-rails</a>
+</section>
+</header>
+<section class='post-content'><p>When it came across image manipulation using Rails, I had to make a choice : Paperclip to handle high traffic/popular websites, and DragonFly for privates, more confidential but also more evolutive applications.</p>
+
+<p>Let&rsquo;s start with an example :# Paperclip typical image URL
+/system/pictures/877/thumbnail/my<em>thumbnail</em>image_name.jpg?1352719049</p>
+
+<h1>DragonFly image URL</h1>
+
+<p>/media/BAhbB1sHOgZmIjIyMDEyLzA5LzE0LzE3XzI0XzA0XzMyMl9BdXLDqWxpZV9DSEFVVkVBVS5KUEdbCDoGcDoKdGh1bWIiCjUweDUw
+Paperclip resizes the image 
+, then store the thumbnail on the file system, whereas DragonFly only upload the original image, as is, then resizes the image 
+. Well&hellip; I don&rsquo;t like any of those two solutions.</p>
+
+<p><strong>Paperclip drawback</strong>
+ : imagine you have a long time living and popular website, with thousands of cool members/users who have each uploaded their avatar. This avatar is stored in 3 sizes, say : original, 200x200 pixels and 50x50 pixels. Cool, and now what happens after 2/3 years of success, when the client redesign the whole website and the designer asks for avatars in 100x100 pixels ? Hu ?! You&rsquo;re good to dive into obscurs shell scripts using ImageMagick on the command line&hellip; Nightmare.</p>
+
+<p><strong>DragonFly drawback</strong>
+ : each time you call an image, you call the DragonFly Gem. Ok, it has an internal caching system, but it <em>is</em> slow. Plus you can forget Google Image indexation and search engine optimization with such an ugly URL (and good luck to convince your client it &ldquo;doesn&rsquo;t matter&rdquo;&hellip;)</p>
+
+<p>I was stuck between those 2 solutions and their respective drawbacks&hellip; until I found an amazing very simple solution reading between the lines of the (excellent) 
+<a href="http://markevans.github.com/dragonfly/">DragonFly documentation</a> : the &ldquo;to_file&rdquo; method ! It only took me a couple of hours to write this helper that ensure the file exists on the filesystem, and only if not, call DragonFly to handle the resize and cache the thumbnail where it is expected to be. Everything is done at the view level, and the helper can also take any argument you would want to see in an img tag (yes, data attributes too).</p>
+
+<p>&lsquo;Want some examples ?</p>
+
+<h1>HAML template</h1>
+
+<p>= thumbnail_tag user.avatar, &#39;100x100&rsquo;</p>
+
+<h1>client side HTML</h1>
+
+<p><img src='/images/user_avatar.jpg' width='100px' height='100px' alt="user_avatar" />
+More tricky</p>
+
+<h1>HAML template</h1>
+
+<p>= thumbnail<em>tag product.image, &#39;200x50&rsquo;, :alt =&gt; &ldquo;such a nice product name&rdquo;, :data =&gt; {:do =&gt;&#39;some</em>action&rsquo;, :trigger =&gt;&#39;that&rsquo;}</p>
+
+<h1>client side HTML</h1>
+
+<p><img src='/products/small/product_image_file_name.jpg' width='200px' height='50px' alt="such a nice product name" data-do='some_action' data-trigger='that' />
+You will find all code, tests, installation instructions and usage on the 
+<a href="https://github.com/gbarillot/dragonfly_helper">github repo</a>.</p>
+</section>
+<footer class='post-footer'>
+<section class='author'>
+<h4>
+<a href='/author/guillaume/'>Guillaume</a>
+</h4>
+<p></p>
+Read
+<a href='/author/guillaume/'>more posts</a>
+by this author.
+</section>
+<section class='share'>
+<h4>Share this post</h4>
+<a class='icon-twitter' href='https://twitter.com/share?text=Paperclip caching and clean URLs or DragonFly on the fly image resizing ? Get the best of both worlds !&amp;amp;url=http://www.guillaume-barillot.com/2012/11/16/Paperclip-caching-and-clean-URLs-or-DragonFly-on-the-fly-image-resizing-Get-the-best-of-both-worlds-/' onclick='window.open(this.href, &#39;twitter-share&#39;, &#39;width=550,height=235&#39;);return false;'>
+<span class='hidden'>Twitter</span>
+</a>
+<a class='icon-facebook' href='https://www.facebook.com/sharer/sharer.php?u=http://www.guillaume-barillot.com/2012/11/16/Paperclip-caching-and-clean-URLs-or-DragonFly-on-the-fly-image-resizing-Get-the-best-of-both-worlds-/' onclick='window.open(this.href, &#39;facebook-share&#39;,&#39;width=580,height=296&#39;);return false;'>
+<span class='hidden'>Facebook</span>
+</a>
+<a class='icon-google-plus' href='https://plus.google.com/share?url=http://www.guillaume-barillot.com/2012/11/16/Paperclip-caching-and-clean-URLs-or-DragonFly-on-the-fly-image-resizing-Get-the-best-of-both-worlds-/' onclick='window.open(this.href, &#39;google-plus-share&#39;, &#39;width=490,height=530&#39;);return false;'>
+<span class='hidden'>Google+</span>
+</a>
+</section>
+</footer>
+</article>
+</main>
+<aside class='read-next'>
+<a class='no-cover read-next-story' href='/2012/08/14/Grer-correctement-les-accents-avec-Ruby-Rails-et-upcase/'>
+<section class='post'>
+<h2>Gérer correctement les accents avec Ruby, Rails et upcase</h2>
+<p>C&#39;est assez étonnant d&#39;avoir encore ce genre de problème de nos jours, mais Ruby (même 1.9.3), ne gère toujours&hellip;</p>
+</section>
+</a>
+<a class='no-cover prev read-next-story' href='/2013/03/23/Switch-from-SeleniumFirefox-to-PoltergeistPhantomjs-and-speed-up-your-test-suite-/'>
+<section class='post'>
+<h2>Switch from Selenium+Firefox to Poltergeist+Phantomjs and speed up your test suite </h2>
+<p>Selenium is a great tool for integration testing but it has two major drawbacks :*it relies on Firefox engine,&hellip;</p>
+</section>
+</a>
+</aside>
+
+<footer class='site-footer clearfix'>
+<section class='copyright'>
+<a href='/'>I build stuff</a>
+&copy;
+2022
+</section>
+<section class='poweredby'>
+Casper theme powered by
+<a href='https://ghost.org'>Ghost</a>
+</section>
+</footer>
+</div>
+<script src="/javascripts/application.js" type="text/javascript"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  
+  ga('create', 'UA-37821599-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</body>
+</html>

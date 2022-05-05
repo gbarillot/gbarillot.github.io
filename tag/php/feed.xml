@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>I build stuff: php</title>
+  <subtitle>Posts tagged with php</subtitle>
+  <id>http://www.guillaume-barillot.com</id>
+  <link href="http://www.guillaume-barillot.com"/>
+  <link href="http://www.guillaume-barillot.com/tag/php/feed.xml" rel="self"/>
+  <updated>2017-12-02T17:47:00Z</updated>
+  <author>
+    <name>Guillaume</name>
+  </author>
+  <entry>
+    <title>Manipuler (très) facilement les images en PHP</title>
+    <link rel="alternate" href="http://www.guillaume-barillot.com/2010/08/23/Manipuler-trs-facilement-les-images-en-PHP/"/>
+    <id>http://www.guillaume-barillot.com/2010/08/23/Manipuler-trs-facilement-les-images-en-PHP/</id>
+    <published>2010-08-23T00:00:00Z</published>
+    <updated>2022-05-05T09:01:28+02:00</updated>
+    <author>
+      <name>Guillaume</name>
+    </author>
+    <summary type="html">Je viens de découvrir ça :
+http://www.mawhorter.net/web-development/simple-image-manipulation-in-php-rotate-resize-crop-flip-and-mirror-thumbnails-square-and-regular et de l'intégrer dans un projet Prestashop où j'ai besoin de manipuler facilement des</summary>
+  </entry>
+  <entry>
+    <title>Faire un print_r dans un template Smarty</title>
+    <link rel="alternate" href="http://www.guillaume-barillot.com/2010/06/09/Faire-un-print_r-dans-un-template-Smarty/"/>
+    <id>http://www.guillaume-barillot.com/2010/06/09/Faire-un-print_r-dans-un-template-Smarty/</id>
+    <published>2010-06-09T00:00:00Z</published>
+    <updated>2022-05-05T09:01:28+02:00</updated>
+    <author>
+      <name>Guillaume</name>
+    </author>
+    <summary type="html">J&amp;#39;avais besoin ce matin de voir ce que contenait précisément l&amp;#39;objet $blockCategTree des catégories de Prestashop, et j&amp;#39;ai trouvé ça :{$blockCategTree|print_r}
+Pratique ? Indispensable !
+</summary>
+  </entry>
+  <entry>
+    <title>Envoyer des Mails chez Orange depuis Prestashop</title>
+    <link rel="alternate" href="http://www.guillaume-barillot.com/2010/06/01/Envoyer-des-Mails-chez-Orange-depuis-Prestashop/"/>
+    <id>http://www.guillaume-barillot.com/2010/06/01/Envoyer-des-Mails-chez-Orange-depuis-Prestashop/</id>
+    <published>2010-06-01T00:00:00Z</published>
+    <updated>2022-05-05T09:01:28+02:00</updated>
+    <author>
+      <name>Guillaume</name>
+    </author>
+    <summary type="html">Vous l'avez peut être remarqué à vos depends, mais la boite Mail d’Orange filtre les Spams sur le return-path (entre autre) des headers de chaque E-Mail et le problème, c’est que par défaut ce header est à “www-data” lorsque les Mails sont envoyés à partir</summary>
+  </entry>
+  <entry>
+    <title>Smarty, non merci</title>
+    <link rel="alternate" href="http://www.guillaume-barillot.com/2009/12/26/Smarty-non-merci/"/>
+    <id>http://www.guillaume-barillot.com/2009/12/26/Smarty-non-merci/</id>
+    <published>2009-12-26T00:00:00Z</published>
+    <updated>2022-05-05T09:01:28+02:00</updated>
+    <author>
+      <name>Guillaume</name>
+    </author>
+    <summary type="html">Ca fait maintenant plusieurs jours que je travail sur un E-Commerce Prestashop avec un thème et des fonctionnalités bien tordues. Mais bon, Prestashop est une bonne plateforme, bien concue. Créer un module ou tordre un peu le Core pour l’adapter à ses</summary>
+  </entry>
+  <entry>
+    <title>La fonction PHP Mail() et l’antispam d’Orange.fr</title>
+    <link rel="alternate" href="http://www.guillaume-barillot.com/2009/10/22/La-fonction-PHP-Mail-et-lantispam-dOrangefr/"/>
+    <id>http://www.guillaume-barillot.com/2009/10/22/La-fonction-PHP-Mail-et-lantispam-dOrangefr/</id>
+    <published>2009-10-22T00:00:00Z</published>
+    <updated>2022-05-05T09:01:28+02:00</updated>
+    <author>
+      <name>Guillaume</name>
+    </author>
+    <summary type="html">Je viens de découvrir à mes dépends que le Mail d’Orange.fr refuse systématiquement les Mails dont le “Return-Path” n’est pas dûment renseigné. Le message n’est même pas passé en Spam, il n’arrive tout simplement… jamais!
+
+La solution pour PHP, est d</summary>
+  </entry>
+</feed>

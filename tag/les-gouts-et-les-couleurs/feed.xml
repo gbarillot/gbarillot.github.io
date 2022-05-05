@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>I build stuff: les-gouts-et-les-couleurs</title>
+  <subtitle>Posts tagged with les-gouts-et-les-couleurs</subtitle>
+  <id>http://www.guillaume-barillot.com</id>
+  <link href="http://www.guillaume-barillot.com"/>
+  <link href="http://www.guillaume-barillot.com/tag/les-gouts-et-les-couleurs/feed.xml" rel="self"/>
+  <updated>2017-12-02T17:47:00Z</updated>
+  <author>
+    <name>Guillaume</name>
+  </author>
+  <entry>
+    <title>Fifteen years using linux... and I just switched to a Mac</title>
+    <link rel="alternate" href="http://www.guillaume-barillot.com/2014/02/22/Fifteen-years-using-linux-and-I-just-switched-to-a-Mac/"/>
+    <id>http://www.guillaume-barillot.com/2014/02/22/Fifteen-years-using-linux-and-I-just-switched-to-a-Mac/</id>
+    <published>2014-02-22T00:00:00Z</published>
+    <updated>2022-05-05T09:01:28+02:00</updated>
+    <author>
+      <name>Guillaume</name>
+    </author>
+    <summary type="html">I still remember my first met with Linux, back in 1998… I instantly embraced the Open Source philosophy. I also doomed the data on my hard drive and it took me 2 days of tough work to get this Red Hat 5.1 up and running, but I really enjoyed this stuff</summary>
+  </entry>
+  <entry>
+    <title>La meilleure façon (et la moins chère) de faire des screencasts au format flash</title>
+    <link rel="alternate" href="http://www.guillaume-barillot.com/2011/01/13/La-meilleure-faon-et-la-moins-chre-de-faire-des-screencasts-au-format-flash/"/>
+    <id>http://www.guillaume-barillot.com/2011/01/13/La-meilleure-faon-et-la-moins-chre-de-faire-des-screencasts-au-format-flash/</id>
+    <published>2011-01-13T00:00:00Z</published>
+    <updated>2022-05-05T09:01:28+02:00</updated>
+    <author>
+      <name>Guillaume</name>
+    </author>
+    <summary type="html">Cela m'aura finalement pris pas loin d'une journée avant d'arriver à une qualité optimale, mais il était vraiment important pour moi de réaliser des screencasts de bonne qualité afin de créer des rubriques d'aides dans mon prochain projet.
+
+Durant cette</summary>
+  </entry>
+  <entry>
+    <title>Non, rien de rien... non, je n'y comprend plus rien</title>
+    <link rel="alternate" href="http://www.guillaume-barillot.com/2010/11/08/Non-rien-de-rien-non-je-ny-comprend-plus-rien/"/>
+    <id>http://www.guillaume-barillot.com/2010/11/08/Non-rien-de-rien-non-je-ny-comprend-plus-rien/</id>
+    <published>2010-11-08T00:00:00Z</published>
+    <updated>2022-05-05T09:01:28+02:00</updated>
+    <author>
+      <name>Guillaume</name>
+    </author>
+    <summary type="html">Petite devinette. Qui était interviewé cette après midi sur BFM et a déclaré distinctement, avec conviction et (apparemment) en pleine possession de ses facultés :&amp;gt;Je pense que dans les années qui viennent il y aura des formules d'abonnement avec lesquelles</summary>
+  </entry>
+  <entry>
+    <title>De belles Fonts dans tous les navigateurs et sans prise de tête avec la Google Font API </title>
+    <link rel="alternate" href="http://www.guillaume-barillot.com/2010/11/03/De-belles-Fonts-dans-tous-les-navigateurs-et-sans-prise-de-tte-avec-la-Google-Font-API-/"/>
+    <id>http://www.guillaume-barillot.com/2010/11/03/De-belles-Fonts-dans-tous-les-navigateurs-et-sans-prise-de-tte-avec-la-Google-Font-API-/</id>
+    <published>2010-11-03T00:00:00Z</published>
+    <updated>2022-05-05T09:01:28+02:00</updated>
+    <author>
+      <name>Guillaume</name>
+    </author>
+    <summary type="html">Depuis le temps qu'on doit se battre avec des images pour avoir un tant soit peu de variété au niveau des Fonts, c'est avec un vrai grand plaisir que j'ai d'abord accueilli les possibilitées ouvertes par CSS3 et l'attribut @font-face… hélas, je me suis</summary>
+  </entry>
+  <entry>
+    <title>Les appli de demain tourneront dans un navigateur. Définitivement.</title>
+    <link rel="alternate" href="http://www.guillaume-barillot.com/2010/09/27/Les-appli-de-demain-tourneront-dans-un-navigateur-Dfinitivement/"/>
+    <id>http://www.guillaume-barillot.com/2010/09/27/Les-appli-de-demain-tourneront-dans-un-navigateur-Dfinitivement/</id>
+    <published>2010-09-27T00:00:00Z</published>
+    <updated>2022-05-05T09:01:28+02:00</updated>
+    <author>
+      <name>Guillaume</name>
+    </author>
+    <summary type="html">Après y avoir songé quelques jours, je ne peux réfrener une furieuse envie de réagir à
+ce post publié sur Smashing Magazine : “Does the future of the Internet have room for web designers”. Titre que l'on pourrait volontier traduire par “l'avenir du Web</summary>
+  </entry>
+  <entry>
+    <title>Un an avec Ruby on Rails : un bilan approfondi</title>
+    <link rel="alternate" href="http://www.guillaume-barillot.com/2010/05/11/Un-an-avec-Ruby-on-Rails-un-bilan-approfondi/"/>
+    <id>http://www.guillaume-barillot.com/2010/05/11/Un-an-avec-Ruby-on-Rails-un-bilan-approfondi/</id>
+    <published>2010-05-11T00:00:00Z</published>
+    <updated>2022-05-05T09:01:28+02:00</updated>
+    <author>
+      <name>Guillaume</name>
+    </author>
+    <summary type="html">Celà fait maintenant un an (et une ‘tite quinzaine de jours…) que j’ai découvert Ruby on Rails, et le moment me semble idéal pour faire un vrai bon bilan en profondeur de cette année de travail. Je serais d’abord direct, clair et concis, avant de m’étendre</summary>
+  </entry>
+</feed>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>I build stuff: business</title>
+  <subtitle>Posts tagged with business</subtitle>
+  <id>http://www.guillaume-barillot.com</id>
+  <link href="http://www.guillaume-barillot.com"/>
+  <link href="http://www.guillaume-barillot.com/tag/business/feed.xml" rel="self"/>
+  <updated>2017-12-02T17:47:00Z</updated>
+  <author>
+    <name>Guillaume</name>
+  </author>
+  <entry>
+    <title>Good bye freelancing</title>
+    <link rel="alternate" href="http://www.guillaume-barillot.com/2015/06/22/good-bye-freelancing/"/>
+    <id>http://www.guillaume-barillot.com/2015/06/22/good-bye-freelancing/</id>
+    <published>2015-06-22T21:34:00Z</published>
+    <updated>2022-05-05T09:01:28+02:00</updated>
+    <author>
+      <name>Guillaume</name>
+    </author>
+    <summary type="html">It’s been now 3 months since I have been officialy hired, 3 months that I’m no longer a freelancer.
+In a way, it’s kinda funny that the exact same things that really thrilled me, are also those
+that just bored me, at the same time. First of all was project</summary>
+  </entry>
+  <entry>
+    <title>Ma life (de développeur Freelance)</title>
+    <link rel="alternate" href="http://www.guillaume-barillot.com/2013/07/18/Ma-life-de-dveloppeur-Freelance/"/>
+    <id>http://www.guillaume-barillot.com/2013/07/18/Ma-life-de-dveloppeur-Freelance/</id>
+    <published>2013-07-18T00:00:00Z</published>
+    <updated>2022-05-05T09:01:28+02:00</updated>
+    <author>
+      <name>Guillaume</name>
+    </author>
+    <summary type="html">Ca fait un bout de temps que je voulais écrire ce post, et un Mail d’un lecteur me posant quelques questions m’a récemment donné l’impulsion de l’écrire.  Je copie/colle donc ce Mail (à peu de choses près) ainsi que ses questions, des fois que ça puisse</summary>
+  </entry>
+  <entry>
+    <title>Meetup Ruby à Chambéry</title>
+    <link rel="alternate" href="http://www.guillaume-barillot.com/2011/01/24/Meetup-Ruby-Chambry/"/>
+    <id>http://www.guillaume-barillot.com/2011/01/24/Meetup-Ruby-Chambry/</id>
+    <published>2011-01-24T00:00:00Z</published>
+    <updated>2022-05-05T09:01:28+02:00</updated>
+    <author>
+      <name>Guillaume</name>
+    </author>
+    <summary type="html">Meetup fort agréable ce week-end à Chambéry, dans les locaux de
+leadformance. Les différents Talks portaient sur l'architecture, JRuby (perso : ‘pas encore convaincu de la chose), le caching, la sécurité (toujours interessant comme sujet) et
+Coffeescript</summary>
+  </entry>
+  <entry>
+    <title>Lecture d'été</title>
+    <link rel="alternate" href="http://www.guillaume-barillot.com/2010/08/29/Lecture-dt/"/>
+    <id>http://www.guillaume-barillot.com/2010/08/29/Lecture-dt/</id>
+    <published>2010-08-29T00:00:00Z</published>
+    <updated>2022-05-05T09:01:28+02:00</updated>
+    <author>
+      <name>Guillaume</name>
+    </author>
+    <summary type="html"> 
+
+Un bouquin interressant. Forcément un peu “tendance-fashionesque” vu l'origine (
+David Heinemeier Hanson), et dont les enseignements sont -d'après moi- difficilement transposables à un autre business hors industrie du Web ; mais à ces deux nuances</summary>
+  </entry>
+  <entry>
+    <title>4 Millions pour CA ???!</title>
+    <link rel="alternate" href="http://www.guillaume-barillot.com/2010/08/19/4-Millions-pour-CA-/"/>
+    <id>http://www.guillaume-barillot.com/2010/08/19/4-Millions-pour-CA-/</id>
+    <published>2010-08-19T00:00:00Z</published>
+    <updated>2022-05-05T09:01:28+02:00</updated>
+    <author>
+      <name>Guillaume</name>
+    </author>
+    <summary type="html">Je tiens à féliciter Daniel Glazman (ce type est dingue : réaliser une extension Firefox uniquement pour compter le nombre de caractère contenu dans le site !) pour
+son analyse du contenu du site
+France.fr.
+
+Bon, perso, je trouve le Design assez
+plat</summary>
+  </entry>
+  <entry>
+    <title>Réferencement : la Meta keywords ne sert à rien</title>
+    <link rel="alternate" href="http://www.guillaume-barillot.com/2009/10/11/Rferencement-la-Meta-keywords-ne-sert-rien/"/>
+    <id>http://www.guillaume-barillot.com/2009/10/11/Rferencement-la-Meta-keywords-ne-sert-rien/</id>
+    <published>2009-10-11T00:00:00Z</published>
+    <updated>2022-05-05T09:01:28+02:00</updated>
+    <author>
+      <name>Guillaume</name>
+    </author>
+    <summary type="html">C’est donc maintenant
+officiel : la balise Meta “Keywords” n’est plus d’aucune utilité dans le réferencement Google. Bon, il n’y a pas que Google dans la vie et de toute façon, nous, on continuera de respecter les bonnes pratiques en l’utilisant à bon</summary>
+  </entry>
+</feed>
