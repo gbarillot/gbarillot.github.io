@@ -2,7 +2,7 @@
 <html>
 <head>
 <title>I build stuff: Rails + Vite + Vue 3 + Pinia starter pack</title>
-<meta content='A blog post I published in 2017 about how to organize your vue files in a Rails projet, ended with those words: &amp;ldquo;The Web has not been buil...' name='description'>
+<meta content='A blog post I published in 2017 about how to organize your vue files in a Rails project, ended with those words: &amp;ldquo;The Web has not been bui...' name='description'>
 <meta charset='utf-8'>
 <meta content='width=device-width, initial-scale=1.0' name='viewport'>
 <meta content='IE=edge' http-equiv='X-UA-Compatible'>
@@ -39,9 +39,8 @@
 <script>
   document.write('<a href="ma');
   document.write('ilto');
-  document.write(':&#103;&#98;&#97;&#114;&#105;&#108;&#108;&#111;&#116;');
-  document.write('@');
-  document.write('&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">');
+  document.write(':&#103;&#117;&#105;&#108;&#108;&#097;&#117;&#109;');
+  document.write('&#101;&#064;&#098;&#097;&#114;&#105;&#108;&#108;&#111;&#116;&#046;&#109;&#101;">');
   document.write("<i class='fa fa-envelope'></i>");
   document.write('<\/a>');
 </script>
@@ -69,9 +68,9 @@
 on <a href='/tag/vue/'>vue</a>
 </section>
 </header>
-<section class='post-content'><p>A blog post I published in 2017 about <a href="https://guillaume.barillot.me/2017/12/02/how-to-organize-your-vue-files-in-a-rails-5-1-project-using-webpack/">how to organize your vue files in a Rails projet</a>, ended with those words: &ldquo;The Web has not been built for SPA&rsquo;s, neither browsers were. Simple things in the &quot;old world&rdquo; may become quite tricky very fast&quot;. Not only this remains true, but I should 
+<section class='post-content'><p>A blog post I published in 2017 about <a href="https://guillaume.barillot.me/2017/12/02/how-to-organize-your-vue-files-in-a-rails-5-1-project-using-webpack/">how to organize your vue files in a Rails project</a>, ended with those words: &ldquo;The Web has not been built for SPA&rsquo;s, neither browsers were. Simple things in the &quot;old world&rdquo; may become quite tricky very fast&quot;. Not only this remains true, but I should 
 also add &ldquo;Rails has not been built for SPA&rsquo;s neither&rdquo;. Let&rsquo;s face it, there is an initial plumbing 
-phase were you have to setup all the basics if you want to use Rails + Vue &amp; friends.</p>
+phase where you have to setup all the basics if you want to use Rails + Vue &amp; friends, and that&rsquo;s a real pain. </p>
 
 <p>Having built and deploy two fairly large apps (&gt;34K LOC) using the opinions and tools exposed in the <a href="https://guillaume.barillot.me/2017/12/02/how-to-organize-your-vue-files-in-a-rails-5-1-project-using-webpack/">previous blog post</a>, I wanted to upgrade the whole stack up to 2022 standards and wrote a new starter pack you can find here: <a href="https://github.com/gbarillot/rails-vue-demo-app">https://github.com/gbarillot/rails-vue-demo-app</a>.</p>
 
@@ -79,13 +78,15 @@ phase were you have to setup all the basics if you want to use Rails + Vue &amp;
 
 <ul>
 <li>Vite integration inside Rails through the Vite-Ruby gem</li>
-<li>Vue 3 + Pinia + Vue router + Vue I18n full setup and ready to roll</li>
+<li>Vue 3 + Pinia full setup and ready to roll</li>
 <li>Form animations, out of the box</li>
-<li>404 and 500 errors pages and handlers working with the API and routers</li>
+<li>404 and 500 error pages wrapped around the API and routers</li>
 <li>Server side + client side routers setup</li>
 <li>I18n setup</li>
 <li>Front / Admin namespaces</li>
-<li>Authentication (using Devise)</li>
+<li>Authentication with Devise</li>
+<li>Pagination using Kaminari</li>
+<li>Ransack search filters </li>
 <li>Websockets bindings with ActionCable</li>
 <li>One basic CRUD example </li>
 <li>A Bootstrap like grid using native CSS Grid</li>
@@ -102,21 +103,27 @@ phase were you have to setup all the basics if you want to use Rails + Vue &amp;
 <li>Axios is largely used in SPA based projects</li>
 </ul>
 
-<h2>Why is the update better?</h2>
+<h2>Why is the 2022 update better?</h2>
 
 <ul>
-<li>The Vue App setup is more consistent, easier to extend if you need it</li>
+<li>The Vue App setup is more consistent, easier to extend if you need it using &ldquo;plugins&rdquo; (examples included)</li>
 <li>Form animations are now 100% transparent, just use the &ldquo;api&rdquo; wrapper with the right HTML element
 and everything will be handled automatically. </li>
-<li>Thanks to Pinia, stores are now more compact and less verbose</li>
-<li>The &ldquo;components&rdquo; directory is now named &ldquo;views&rdquo;. I noticed it in a few Vue projects and that totally makes sense in order to bring Rails conventions to a SPA</li>
+<li>Thanks to Pinia, stores are now more compact and less verbose. They are also composable which could be usefull in some cases</li>
+<li>The &ldquo;components&rdquo; directory is now named &ldquo;views&rdquo;. I noticed it in a few Vue projects and that totally makes sense in order to bring Rails conventions into a SPA</li>
 <li>Although I didn&rsquo;t port big existing apps yet, I expect Vite to be way faster than Webpack. With a 
 5K LOC Vue app the sluginess of Webpack started to be a problem in development</li>
 <li>Porting only the bootstrap grid (using native CSS Grid layout) lets you write custom CSS fast and efficiently without the whole Boostrap bloat. Anyway, feel free to use whatever CSS framework you prefer&hellip;</li>
 <li>No more JQuery for HTTP Requests, Axios does the job perfectly for a fraction of the load size</li>
 </ul>
 
-<p>Feel free to contribute, I&rsquo;ll listen to any question or comment you may have! </p>
+<h2>How is it to work with a Rails + Vue stack since 2017?</h2>
+
+<p>Well&hellip; It works! We recently onboard a junior dev (first job, no previous experience with Rails nor Vue) and he&rsquo;s been really productive in just a few weeks. Even at &gt; 34K LOC, we&rsquo;re still far from any &ldquo;maintainability wall&rdquo;. Our UI is fast as hell, adding new features is still a pleasure and all of this is realiable and easily testable. </p>
+
+<p>Long story short: <strong>an SPA doesn&rsquo;t have to be painfull</strong>.</p>
+
+<p>Feel free to contribute, I&rsquo;m open for questions or comments you may have! </p>
 </section>
 <footer class='post-footer'>
 <section class='author'>
@@ -165,14 +172,5 @@ Casper theme powered by
 </footer>
 </div>
 <script src="/javascripts/application.js" type="text/javascript"></script>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-  
-  ga('create', 'UA-37821599-1', 'auto');
-  ga('send', 'pageview');
-</script>
 </body>
 </html>
