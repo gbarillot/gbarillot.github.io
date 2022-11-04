@@ -14,11 +14,13 @@
     <link rel="alternate" href="http://www.guillaume-barillot.com/2022/05/05/rails-vite-vue-3-pina-starter-pack/"/>
     <id>http://www.guillaume-barillot.com/2022/05/05/rails-vite-vue-3-pina-starter-pack/</id>
     <published>2022-05-05T14:36:00Z</published>
-    <updated>2022-05-06T09:01:36+02:00</updated>
+    <updated>2022-11-04T18:39:37+01:00</updated>
     <author>
       <name>Guillaume</name>
     </author>
-    <summary type="html">A blog post I published in 2017 about how to organize your vue files in a Rails project, ended with those words: “The Web has not been built for SPA’s, neither browsers were. Simple things in the "old world” may become quite tricky very fast". Not only</summary>
+    <summary type="html">Let’s face it, if you start a new Rails + Vue project you’ll have to deal with an initial plumbing phase only to setup all the basic stuff. That’s usually not the most fun part… but I have some good news: I did the boring work for you :-).
+
+Having built</summary>
   </entry>
   <entry>
     <title>How to organize a Vue app in a Rails project using Webpack</title>

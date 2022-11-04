@@ -2,7 +2,7 @@
 <html>
 <head>
 <title>I build stuff: Rails 7 + Vite + Vue 3 + Pinia starter pack</title>
-<meta content='A blog post I published in 2017 about how to organize your vue files in a Rails project, ended with those words: &amp;ldquo;The Web has not been bui...' name='description'>
+<meta content='Let&amp;rsquo;s face it, if you start a new Rails + Vue project you&amp;rsquo;ll have to deal with an initial plumbing phase only to setup all the basic...' name='description'>
 <meta charset='utf-8'>
 <meta content='width=device-width, initial-scale=1.0' name='viewport'>
 <meta content='IE=edge' http-equiv='X-UA-Compatible'>
@@ -68,11 +68,9 @@
 on <a href='/tag/vue/'>vue</a>
 </section>
 </header>
-<section class='post-content'><p>A blog post I published in 2017 about <a href="https://guillaume.barillot.me/2017/12/02/how-to-organize-your-vue-files-in-a-rails-5-1-project-using-webpack/">how to organize your vue files in a Rails project</a>, ended with those words: &ldquo;The Web has not been built for SPA&rsquo;s, neither browsers were. Simple things in the &quot;old world&rdquo; may become quite tricky very fast&quot;. Not only this remains true, but I should 
-also add &ldquo;Rails has not been built for SPA&rsquo;s neither&rdquo;. Let&rsquo;s face it, there is an initial plumbing 
-phase where you have to setup all the basics if you want to use Rails + Vue &amp; friends, and that&rsquo;s a real pain. </p>
+<section class='post-content'><p>Let&rsquo;s face it, if you start a new Rails + Vue project you&rsquo;ll have to deal with an initial plumbing phase only to setup all the basic stuff. That&rsquo;s usually not the most fun part&hellip; but I have some good news: I did the boring work for you :-).</p>
 
-<p>Having built and deploy two fairly large apps (&gt;34K LOC) using the opinions and tools exposed in the <a href="https://guillaume.barillot.me/2017/12/02/how-to-organize-your-vue-files-in-a-rails-5-1-project-using-webpack/">previous blog post</a>, I wanted to upgrade the whole stack up to 2022 standards and wrote a new starter pack you can find here: <a href="https://github.com/gbarillot/rails-vue-demo-app">https://github.com/gbarillot/rails-vue-demo-app</a>.</p>
+<p>Having built and deployed two fairly large apps (&gt;34K LOC) using the opinions and tools exposed in a <a href="https://guillaume.barillot.me/2017/12/02/how-to-organize-your-vue-files-in-a-rails-5-1-project-using-webpack/">previous blog post</a>, it was time to upgrade the whole stack up to 2022 standards and I wrote a new starter pack you can find here: <a href="https://github.com/gbarillot/rails-vue-demo-app">https://github.com/gbarillot/rails-vue-demo-app</a>.</p>
 
 <h2>What you&rsquo;ll get in the demo app</h2>
 
@@ -84,9 +82,8 @@ phase where you have to setup all the basics if you want to use Rails + Vue &amp
 <li>Server side + client side routers setup</li>
 <li>I18n setup</li>
 <li>Front / Admin namespaces</li>
-<li>Authentication with Devise</li>
-<li>Pagination using Kaminari</li>
-<li>Ransack search filters </li>
+<li>Authentication using Devise</li>
+<li>Pagination and Ransack working hand in hand with Vue router </li>
 <li>Websockets bindings with ActionCable</li>
 <li>One basic CRUD example </li>
 <li>A Bootstrap like grid using native CSS Grid</li>
@@ -99,7 +96,7 @@ phase where you have to setup all the basics if you want to use Rails + Vue &amp
 <li>Vite is now the prefered compiler for Vue projects</li>
 <li>Pinia replaces Vuex</li>
 <li>Boostrap has gone (even more) bloated</li>
-<li>CSS Grid layout browers support is now mainstream</li>
+<li>CSS Grid layout browers support is <a href="https://caniuse.com/css-grid">now mainstream</a></li>
 <li>Axios is largely used in SPA based projects</li>
 </ul>
 
@@ -110,7 +107,7 @@ phase where you have to setup all the basics if you want to use Rails + Vue &amp
 <li>Form animations are now 100% transparent, just use the &ldquo;api&rdquo; wrapper with the right HTML element
 and everything will be handled automatically. </li>
 <li>Thanks to Pinia, stores are now more compact and less verbose. They are also composable which could be usefull in some cases</li>
-<li>The &ldquo;components&rdquo; directory is now named &ldquo;views&rdquo;. I noticed it in a few Vue projects and that totally makes sense in order to bring Rails conventions into a SPA</li>
+<li>The &ldquo;components&rdquo; directory is now named &ldquo;views&rdquo;. I noticed it in some Vue projects and that totally makes sense in order to bring Rails conventions into a SPA</li>
 <li>Although I didn&rsquo;t port big existing apps yet, I expect Vite to be way faster than Webpack. With a 
 5K LOC Vue app the sluginess of Webpack started to be a problem in development</li>
 <li>Porting only the bootstrap grid (using native CSS Grid layout) lets you write custom CSS fast and efficiently without the whole Boostrap bloat. Anyway, feel free to use whatever CSS framework you prefer&hellip;</li>
@@ -121,7 +118,7 @@ and everything will be handled automatically. </li>
 
 <p>Well&hellip; It works! We recently onboard a junior dev (first job, no previous experience with Rails nor Vue) and he&rsquo;s been really productive in just a few weeks. Even at &gt; 34K LOC, we&rsquo;re still far from any &ldquo;maintainability wall&rdquo;. Our UI is fast as hell, adding new features is still a pleasure and all of this is realiable and easily testable. </p>
 
-<p>Long story short: <strong>an SPA doesn&rsquo;t have to be painfull</strong>.</p>
+<p>Long story short: <strong>a Single Page App doesn&rsquo;t have to be painful</strong>.</p>
 
 <p>Feel free to contribute, I&rsquo;m open for questions or comments you may have! </p>
 </section>
