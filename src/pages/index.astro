@@ -1,0 +1,317 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero2 from '~/components/widgets/Hero2.astro';
+import Features from '~/components/widgets/Features.astro';
+import Content from '~/components/widgets/Content.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import Contact from '~/components/widgets/Contact.astro';
+import StructuredData from '~/components/common/StructuredData.astro';
+import { SITE, I18N } from 'astrowind:config';
+import favIconSvg from '~/assets/favicons/favicon.svg';
+
+const metadata = {
+  title: 'PME + AI | Automatisez vos processus, simplement',
+  description:
+    'PME + AI automatise les processus des PME : formulaires CERFA pré-remplis, fin des copier-coller entre applications, e-mails et PDF, workflows fiables et gain de temps.',
+  ignoreTitleTemplate: true,
+  openGraph: { type: 'website' },
+};
+
+const organizationId = `${SITE?.site}/#organization`;
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${SITE?.site}/#website`,
+    name: SITE?.name,
+    url: SITE?.site,
+    inLanguage: I18N?.language,
+    publisher: { '@id': organizationId },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': organizationId,
+    name: SITE?.name,
+    url: SITE?.site,
+    logo: new URL(favIconSvg.src, SITE?.site).toString(),
+  },
+];
+---
+
+<Layout metadata={metadata}>
+  <StructuredData slot="head" schema={structuredData} />
+
+  <Hero2
+    tagline="Automatisation pragmatique pour les PME"
+    actions={[
+      { variant: 'primary', text: 'Parler de votre projet', href: '#contact', icon: 'tabler:arrow-right' },
+      { text: 'Découvrir notre approche', href: '#approche' },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1400&q=85',
+      alt: "Une équipe de PME organise ses processus autour d'une table",
+    }}
+  >
+    <Fragment slot="title">
+      Moins de tâches répétitives.<br />
+      <span class="text-gradient">Plus de temps pour votre métier.</span>
+    </Fragment>
+    <Fragment slot="subtitle">
+      PME + AI transforme vos processus manuels en workflows simples et fiables : formulaires administratifs (CERFA)
+      pré-remplis, fin des copier-coller entre vos applications, e-mails et PDF. Vous gagnez en efficacité sans
+      bouleverser vos outils ni vos habitudes du jour au lendemain.
+    </Fragment>
+    <Fragment slot="bg">
+      <div
+        class="absolute inset-0 bg-[radial-gradient(65%_50%_at_78%_12%,rgb(79_70_229/0.18),transparent_65%),radial-gradient(45%_45%_at_10%_90%,rgb(8_145_178/0.12),transparent_70%)] dark:bg-[radial-gradient(65%_50%_at_78%_12%,rgb(129_140_248/0.18),transparent_65%),radial-gradient(45%_45%_at_10%_90%,rgb(34_211_238/0.1),transparent_70%)]"
+      >
+      </div>
+    </Fragment>
+  </Hero2>
+
+  <Features
+    id="enjeux"
+    tagline="Vos enjeux"
+    title="Vos équipes ont mieux à faire que copier, relancer et ressaisir"
+    subtitle="Les petites tâches dispersées finissent par coûter cher : temps perdu, erreurs, manque de visibilité et dépendance à quelques personnes clés."
+    columns={3}
+    items={[
+      {
+        title: 'Administratif répétitif',
+        description:
+          'Saisie de données, classement de documents, création de dossiers et mises à jour peuvent être automatisés sans complexifier le quotidien.',
+        icon: 'tabler:file-invoice',
+      },
+      {
+        title: 'Informations dispersées',
+        description:
+          'Nous faisons circuler les bonnes données entre vos outils pour éviter les doubles saisies et les recherches interminables.',
+        icon: 'tabler:arrows-exchange',
+      },
+      {
+        title: 'Suivi trop manuel',
+        description:
+          'Relances, validations, alertes et comptes rendus se déclenchent au bon moment, avec une vision claire de chaque étape.',
+        icon: 'tabler:route',
+      },
+    ]}
+  />
+
+  <Features
+    id="services"
+    tagline="Nos solutions"
+    title="Automatiser là où cela produit un résultat concret"
+    subtitle="Nous partons de vos opérations réelles, pas d'une technologie à placer. Chaque solution est dimensionnée selon vos priorités, vos outils et votre capacité d'adoption."
+    columns={2}
+    items={[
+      {
+        title: 'Diagnostic des processus',
+        description:
+          'Cartographie des tâches, des irritants et des flux d’information pour identifier les automatisations les plus utiles et rapidement rentables.',
+        icon: 'tabler:map-search',
+      },
+      {
+        title: 'Workflows métier',
+        description:
+          'Automatisation des validations, notifications, relances et passages de relais entre vos équipes commerciales, administratives et opérationnelles.',
+        icon: 'tabler:automation',
+      },
+      {
+        title: 'Connexion de vos outils',
+        description:
+          'CRM, facturation, messagerie, tableurs et outils internes communiquent enfin entre eux, sans remplacement systématique de votre existant.',
+        icon: 'tabler:plug-connected',
+      },
+      {
+        title: 'IA utile et encadrée',
+        description:
+          'Extraction de données, classement, synthèse ou assistance à la rédaction lorsque l’IA apporte une vraie valeur, avec contrôle humain.',
+        icon: 'tabler:sparkles',
+      },
+    ]}
+  >
+    <Fragment slot="bg"><div class="absolute inset-0 bg-primary/5 dark:bg-primary/10"></div></Fragment>
+  </Features>
+
+  <Features
+    id="cas-usage"
+    tagline="Cas d'usage concrets"
+    title="Deux irritants qui disparaissent dès les premières semaines"
+    subtitle="Ce sont les situations que nous rencontrons le plus souvent en PME. Elles se règlent sans changer vos outils ni vos habitudes, et le gain se voit immédiatement."
+    columns={2}
+    items={[
+      {
+        title: 'Remplir vos CERFA sans ressaisie',
+        description:
+          'Les informations déjà présentes dans vos outils pré-remplissent les formulaires administratifs (CERFA) et documents officiels. Le document est généré, vérifié puis prêt à transmettre : plus de double saisie, plus d’erreur de recopie.',
+        icon: 'tabler:file-certificate',
+        callToAction: { variant: 'link', text: 'Automatiser mes formulaires', href: '#contact' },
+      },
+      {
+        title: 'Arrêter les copier-coller entre applications, e-mails et PDF',
+        description:
+          'Une information saisie une seule fois circule automatiquement là où elle est utile : CRM, facturation, messagerie, tableurs ou PDF. Vos équipes ne recopient plus, ne recherchent plus et ne découpent plus de documents à la main.',
+        icon: 'tabler:copy-off',
+        callToAction: { variant: 'link', text: 'Supprimer les ressaisies', href: '#contact' },
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div
+        class="absolute inset-0 bg-[radial-gradient(60%_60%_at_50%_0%,rgb(79_70_229/0.07),transparent_70%)] dark:bg-[radial-gradient(60%_60%_at_50%_0%,rgb(129_140_248/0.09),transparent_70%)]"
+      >
+      </div>
+    </Fragment>
+  </Features>
+
+  <Content
+    id="benefices"
+    isReversed
+    tagline="Une transformation maîtrisée"
+    title="Une automatisation que vos équipes comprennent et adoptent"
+    items={[
+      {
+        title: 'Des gains visibles rapidement',
+        description: 'Nous commençons par un périmètre ciblé afin de démontrer la valeur avant d’aller plus loin.',
+      },
+      {
+        title: 'Vos outils conservés autant que possible',
+        description: 'L’automatisation relie et améliore l’existant au lieu d’imposer une refonte inutile.',
+      },
+      {
+        title: 'Une solution documentée',
+        description: 'Vos équipes savent comment le workflow fonctionne, quoi surveiller et comment le faire évoluer.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1400&q=85',
+      alt: 'Des responsables opérationnels collaborent devant un écran',
+    }}
+  >
+    <Fragment slot="content">
+      <p class="text-xl text-muted">
+        La bonne automatisation reste discrète : elle enlève les frictions, sécurise les étapes importantes et laisse
+        vos collaborateurs se concentrer sur les décisions qui nécessitent leur expertise.
+      </p>
+    </Fragment>
+  </Content>
+
+  <Steps2
+    id="approche"
+    tagline="Notre approche"
+    title="De l'irritant quotidien au workflow opérationnel"
+    subtitle="Un accompagnement progressif, avec vos équipes, pour obtenir un résultat utile sans lancer un chantier interminable."
+    items={[
+      {
+        title: 'Écouter et observer',
+        description:
+          'Nous échangeons avec les personnes concernées pour comprendre le processus réel, ses exceptions et les points de blocage.',
+        icon: 'tabler:message-circle-search',
+      },
+      {
+        title: 'Prioriser',
+        description:
+          'Nous évaluons le gain attendu, la faisabilité et les risques pour choisir un premier cas d’usage pertinent.',
+        icon: 'tabler:target-arrow',
+      },
+      {
+        title: 'Construire et tester',
+        description:
+          'Le workflow est réalisé par étapes, testé avec ses futurs utilisateurs et ajusté aux situations concrètes.',
+        icon: 'tabler:settings-check',
+      },
+      {
+        title: 'Déployer et transmettre',
+        description:
+          'Nous accompagnons la mise en service, documentons la solution et préparons les évolutions suivantes.',
+        icon: 'tabler:rocket',
+      },
+    ]}
+  />
+
+  <FAQs
+    id="faq"
+    tagline="Questions fréquentes"
+    title="Avant de lancer votre première automatisation"
+    schema
+    items={[
+      {
+        title: 'Faut-il remplacer nos outils actuels ?',
+        description:
+          'Pas nécessairement. Nous cherchons d’abord à connecter et mieux exploiter les outils déjà maîtrisés par vos équipes. Un remplacement n’est proposé que s’il répond à un blocage réel.',
+      },
+      {
+        title: 'Quels processus peut-on automatiser ?',
+        description:
+          'Les meilleurs candidats sont fréquents, répétitifs et basés sur des règles identifiables : saisie, transfert d’informations, génération de documents, validation, relance ou reporting.',
+      },
+      {
+        title: "L'intelligence artificielle est-elle toujours nécessaire ?",
+        description:
+          'Non. Beaucoup de gains viennent d’automatisations classiques, plus simples et prévisibles. Nous utilisons l’IA uniquement lorsqu’elle améliore réellement le traitement de textes, documents ou données non structurées.',
+      },
+      {
+        title: 'Peut-on automatiser le remplissage des CERFA ?',
+        description:
+          'Oui. Lorsque les informations existent déjà dans vos outils, nous pouvons pré-remplir les CERFA et documents administratifs, générer le fichier final et le contrôler avant envoi. La saisie manuelle et les erreurs de recopie disparaissent, tout comme les copier-coller entre applications, e-mails et PDF.',
+      },
+      {
+        title: 'Comment impliquez-vous nos équipes ?',
+        description:
+          'Les utilisateurs participent à la compréhension du besoin puis aux tests. Cette collaboration permet de traiter les exceptions métier et facilite l’adoption de la solution.',
+      },
+      {
+        title: 'Peut-on commencer par un petit périmètre ?',
+        description:
+          'Oui, c’est même notre approche privilégiée. Un premier workflow ciblé permet de mesurer les bénéfices, d’apprendre rapidement et de décider sereinement de la suite.',
+      },
+    ]}
+  >
+    <Fragment slot="bg"><div class="absolute inset-0 bg-primary/5 dark:bg-primary/10"></div></Fragment>
+  </FAQs>
+
+  <Contact
+    id="contact"
+    tagline="Premier échange"
+    title="Parlons de ce qui ralentit vos équipes"
+    subtitle="Décrivez-nous brièvement votre organisation et le processus que vous aimeriez simplifier. Nous reviendrons vers vous pour organiser un premier rendez-vous sans engagement."
+    inputs={[
+      { type: 'text', name: 'name', label: 'Nom et prénom', autocomplete: 'name', placeholder: 'Votre nom' },
+      {
+        type: 'text',
+        name: 'company',
+        label: 'Entreprise',
+        autocomplete: 'organization',
+        placeholder: 'Nom de votre entreprise',
+      },
+      {
+        type: 'email',
+        name: 'email',
+        label: 'E-mail professionnel',
+        autocomplete: 'email',
+        placeholder: 'vous@entreprise.fr',
+      },
+      {
+        type: 'tel',
+        name: 'phone',
+        label: 'Téléphone (facultatif)',
+        autocomplete: 'tel',
+        placeholder: 'Votre numéro',
+      },
+    ]}
+    textarea={{
+      label: 'Quel processus souhaitez-vous améliorer ?',
+      name: 'message',
+      placeholder: 'Quelques lignes sur votre fonctionnement actuel, les difficultés rencontrées et votre objectif…',
+      rows: 5,
+    }}
+    disclaimer={{
+      label: 'J’accepte que PME + AI utilise ces informations uniquement pour répondre à ma demande de rendez-vous.',
+    }}
+    button="Demander un rendez-vous"
+    description="Vos coordonnées ne sont ni publiées ni transmises à des tiers."
+  />
+</Layout>
