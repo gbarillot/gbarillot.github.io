@@ -3,11 +3,11 @@ name: CI
 on:
   pull_request:
     branches:
-      - main
+      - source
 
   push:
     branches:
-      - main
+      - source
 
 permissions:
   contents: read

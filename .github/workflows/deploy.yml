@@ -2,7 +2,7 @@ name: Deploy Astro site to GitHub Pages
 
 on:
   push:
-    branches: [master]
+    branches: [source]
   workflow_dispatch:
 
 permissions:
@@ -36,16 +36,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: gh-pages
-          publish_dir: ./dist
-          cname: guillaume.barillot.me
-          force_orphan: true
-
-      - name: Replace legacy build branch
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: build
+          publish_branch: master
           publish_dir: ./dist
           cname: guillaume.barillot.me
           force_orphan: true
