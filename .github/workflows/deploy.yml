@@ -40,3 +40,12 @@ jobs:
           publish_dir: ./dist
           cname: guillaume.barillot.me
           force_orphan: true
+
+      - name: Replace legacy build branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: build
+          publish_dir: ./dist
+          cname: guillaume.barillot.me
+          force_orphan: true
