@@ -7,7 +7,7 @@ layout: '~/layouts/MarkdownLayout.astro'
 
 ## Éditeur du site
 
-- Dénomination ou raison sociale : PME + AI
+- Dénomination ou raison sociale : Guillaume Barillot
 - Forme juridique : à compléter
 - Adresse du siège social : à compléter
 - Numéro d'immatriculation : à compléter
@@ -26,6 +26,6 @@ Sauf mention contraire, les textes, éléments graphiques et contenus présents 
 
 ## Responsabilité
 
-Les informations publiées sur ce site présentent les services de PME + AI à titre général. Elles ne constituent pas un engagement contractuel ni un conseil adapté à une situation particulière.
+Les informations publiées sur ce site présentent les services de Guillaume Barillot à titre général. Elles ne constituent pas un engagement contractuel ni un conseil adapté à une situation particulière.
 
-PME + AI s'efforce de maintenir des informations exactes et accessibles, sans pouvoir garantir l'absence permanente d'erreur ou d'interruption.
+Guillaume Barillot s'efforce de maintenir des informations exactes et accessibles, sans pouvoir garantir l'absence permanente d'erreur ou d'interruption.

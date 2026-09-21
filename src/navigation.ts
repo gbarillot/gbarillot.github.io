@@ -14,7 +14,7 @@ export const headerData = {
 export const footerData = {
   links: [
     {
-      title: 'PME + AI',
+      title: 'Guillaume Barillot',
       links: [
         { text: 'Vos enjeux', href: getPermalink('/#enjeux') },
         { text: 'Nos solutions', href: getPermalink('/#services') },
@@ -35,5 +35,5 @@ export const footerData = {
     { text: 'Confidentialité', href: getPermalink('/privacy') },
   ],
   socialLinks: [],
-  footNote: `© ${new Date().getFullYear()} PME + AI. Tous droits réservés.`,
+  footNote: `© ${new Date().getFullYear()} Guillaume Barillot. Tous droits réservés.`,
 };

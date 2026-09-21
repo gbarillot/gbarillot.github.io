@@ -7,7 +7,7 @@ layout: '~/layouts/MarkdownLayout.astro'
 
 ## Données collectées
 
-Lorsque vous utilisez le formulaire de prise de rendez-vous, PME + AI peut recueillir les informations que vous fournissez : nom, entreprise, adresse e-mail professionnelle, numéro de téléphone et contenu de votre message.
+Lorsque vous utilisez le formulaire de prise de rendez-vous, Guillaume Barillot peut recueillir les informations que vous fournissez : nom, entreprise, adresse e-mail professionnelle, numéro de téléphone et contenu de votre message.
 
 ## Finalité du traitement
 

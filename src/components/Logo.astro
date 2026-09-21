@@ -1,5 +1,21 @@
-<span
-  class="self-center ml-2 rtl:ml-0 rtl:mr-2 text-xl font-bold tracking-tight text-slate-950 whitespace-nowrap dark:text-white"
->
-  <span class="text-primary">PME +</span> AI
+---
+interface Props {
+  showTagline?: boolean;
+}
+
+const { showTagline = true } = Astro.props;
+---
+
+<span class="inline-flex flex-col whitespace-nowrap text-slate-950 dark:text-white" aria-label="Guillaume Barillot">
+  <span class="text-[0.78rem] font-light leading-none tracking-[0.045em] sm:text-[0.82rem]">Guillaume</span>
+  <span class="text-[1.42rem] font-extrabold leading-[0.92] tracking-[-0.055em] sm:text-[1.5rem]">
+    Barillot<span class="text-primary">.</span>
+  </span>
+  {
+    showTagline && (
+      <span class="mt-1 hidden text-[0.42rem] font-medium leading-none tracking-[0.2em] text-muted xl:block">
+        AUTOMATISATION &amp; IA
+      </span>
+    )
+  }
 </span>

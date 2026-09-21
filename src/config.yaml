@@ -1,5 +1,5 @@
 site:
-  name: PME + AI
+  name: Guillaume Barillot
   site: 'https://guillaume.barillot.me'
   base: '/'
   trailingSlash: false
@@ -9,18 +9,18 @@ site:
 # Default SEO metadata
 metadata:
   title:
-    default: PME + AI
-    template: '%s — PME + AI'
-  description: 'Automatisation de processus et de workflows pour les PME françaises.'
+    default: 'Guillaume Barillot — Automatisation & IA pour entreprises à Lyon'
+    template: '%s — Guillaume Barillot'
+  description: 'Automatisation de processus et workflows par Guillaume Barillot pour les entreprises à Lyon.'
   robots:
     index: true
     follow: true
   openGraph:
-    site_name: PME + AI
+    site_name: Guillaume Barillot
     images:
       - url: '~/assets/images/default.png'
         width: 1200
-        height: 628
+        height: 630
     type: website
   twitter:
     handle: ''
