@@ -1,0 +1,297 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<div class:list={['hidden lg:block select-none', className]} aria-hidden="true">
+  <div class="hv-scene relative mx-auto max-w-md">
+    <div
+      class="hv-float relative rounded-2xl border border-gray-200 bg-white shadow-xl shadow-slate-900/5 dark:border-slate-700 dark:bg-slate-900 dark:shadow-black/30"
+    >
+      <div class="flex items-center justify-between border-b border-gray-100 px-5 py-3.5 dark:border-slate-800">
+        <div class="flex items-center gap-2">
+          <Icon name="tabler:file-text" class="h-4.5 w-4.5 text-primary" />
+          <span class="text-sm font-semibold text-default">Formulaire CERFA</span>
+        </div>
+        <span class="text-xs text-muted">Dossier n° 2026-0142</span>
+      </div>
+
+      <div class="space-y-3 px-5 py-4">
+        <div class="hv-grid">
+          <label class="text-[0.65rem] font-medium uppercase tracking-wide text-muted">Nom / Raison sociale</label>
+          <div class="hv-box"><span class="hv-fill hv-f1">SARL Dupont &amp; Fils</span></div>
+        </div>
+        <div class="hv-grid">
+          <label class="text-[0.65rem] font-medium uppercase tracking-wide text-muted">SIRET</label>
+          <div class="hv-box"><span class="hv-fill hv-f2">812 445 678 00023</span></div>
+        </div>
+        <div class="hv-grid">
+          <label class="text-[0.65rem] font-medium uppercase tracking-wide text-muted">Adresse</label>
+          <div class="hv-box"><span class="hv-fill hv-f3">12 rue de la République, 69002 Lyon</span></div>
+        </div>
+        <div class="hv-grid">
+          <label class="text-[0.65rem] font-medium uppercase tracking-wide text-muted">Activité</label>
+          <div class="hv-box"><span class="hv-fill hv-f4">Conseil en automatisation</span></div>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-between border-t border-gray-100 px-5 py-3 dark:border-slate-800">
+        <span class="hv-status grid">
+          <span class="hv-verifying col-start-1 row-start-1 flex items-center gap-2 text-sm text-muted">
+            <span class="hv-spinner"><Icon name="tabler:loader-2" class="h-4 w-4 text-primary" /></span>
+            Vérification des données…
+          </span>
+          <span
+            class="hv-verified col-start-1 row-start-1 flex items-center gap-2 text-sm font-medium text-emerald-600 dark:text-emerald-400"
+          >
+            <Icon name="tabler:circle-check-filled" class="h-4.5 w-4.5" />
+            Données vérifiées
+          </span>
+        </span>
+        <span
+          class="rounded-full bg-primary/10 px-2.5 py-1 text-[0.65rem] font-semibold uppercase tracking-wide text-primary dark:bg-primary/25"
+        >
+          Prêt à transmettre
+        </span>
+      </div>
+    </div>
+
+    <div
+      class="hv-mail absolute -bottom-7 -right-3 flex items-center gap-3 rounded-xl border border-gray-200 bg-white px-4 py-3 shadow-lg shadow-slate-900/10 dark:border-slate-700 dark:bg-slate-900 dark:shadow-black/40"
+    >
+      <span class="flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10">
+        <Icon name="tabler:file-zip" class="h-5 w-5 text-primary" />
+      </span>
+      <span class="grid">
+        <span class="text-xs font-semibold text-default">dossier_client.pdf</span>
+        <span class="text-[0.65rem] text-muted">Reçu par e-mail</span>
+      </span>
+      <Icon name="tabler:circle-check-filled" class="h-5 w-5 text-emerald-500" />
+    </div>
+  </div>
+</div>
+
+<style>
+  .hv-grid {
+    display: grid;
+    gap: 0.35rem;
+  }
+
+  .hv-box {
+    display: block;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    border: 1px solid rgb(229 231 235);
+    padding: 0.55rem 0.75rem;
+    font-size: 0.875rem;
+    color: var(--aw-color-text-default);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    background: rgb(249 250 251);
+  }
+
+  :global(.dark) .hv-box {
+    border-color: rgb(51 65 85);
+    background: rgb(15 23 42);
+  }
+
+  .hv-fill {
+    display: inline-block;
+    clip-path: inset(0 0 0 0);
+  }
+
+  .hv-status > span {
+    min-height: 1.25rem;
+    align-items: center;
+  }
+
+  .hv-verified {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  .hv-mail {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+
+  .hv-scene {
+    animation: hv-scene 10s linear infinite;
+  }
+
+  .hv-float {
+    animation: hv-float 5s ease-in-out infinite alternate;
+  }
+
+  .hv-fill {
+    animation: hv-fill 10s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  }
+
+  .hv-f1 {
+    animation-name: hv-fill-1;
+  }
+
+  .hv-f2 {
+    animation-name: hv-fill-2;
+  }
+
+  .hv-f3 {
+    animation-name: hv-fill-3;
+  }
+
+  .hv-f4 {
+    animation-name: hv-fill-4;
+  }
+
+  .hv-verifying {
+    animation: hv-fade-out 10s linear infinite;
+  }
+
+  .hv-spinner {
+    display: inline-flex;
+    animation: hv-spin 0.9s linear infinite;
+  }
+
+  .hv-verified {
+    animation: hv-pop 10s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+  }
+
+  .hv-mail {
+    animation: hv-mail 10s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+  }
+
+  @keyframes hv-scene {
+    0%,
+    82%,
+    94%,
+    100% {
+      opacity: 1;
+    }
+
+    86%,
+    90% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes hv-float {
+    from {
+      transform: translateY(0);
+    }
+
+    to {
+      transform: translateY(-6px);
+    }
+  }
+
+  @keyframes hv-fill-1 {
+    0%,
+    6% {
+      clip-path: inset(0 100% 0 0);
+    }
+
+    14%,
+    100% {
+      clip-path: inset(0 0 0 0);
+    }
+  }
+
+  @keyframes hv-fill-2 {
+    0%,
+    14% {
+      clip-path: inset(0 100% 0 0);
+    }
+
+    22%,
+    100% {
+      clip-path: inset(0 0 0 0);
+    }
+  }
+
+  @keyframes hv-fill-3 {
+    0%,
+    22% {
+      clip-path: inset(0 100% 0 0);
+    }
+
+    30%,
+    100% {
+      clip-path: inset(0 0 0 0);
+    }
+  }
+
+  @keyframes hv-fill-4 {
+    0%,
+    30% {
+      clip-path: inset(0 100% 0 0);
+    }
+
+    38%,
+    100% {
+      clip-path: inset(0 0 0 0);
+    }
+  }
+
+  @keyframes hv-fade-out {
+    0%,
+    38% {
+      opacity: 1;
+    }
+
+    42%,
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes hv-spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes hv-pop {
+    0%,
+    40% {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+
+    48%,
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes hv-mail {
+    0%,
+    48% {
+      opacity: 0;
+      transform: translateY(6px) scale(0.95);
+    }
+
+    56%,
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hv-scene,
+    .hv-float,
+    .hv-fill,
+    .hv-verifying,
+    .hv-spinner,
+    .hv-verified,
+    .hv-mail {
+      animation: none;
+    }
+  }
+</style>

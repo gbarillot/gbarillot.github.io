@@ -2,14 +2,14 @@
 import type { Form as Props } from '~/types';
 import Button from '~/components/ui/Button.astro';
 
-const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } = Astro.props;
+const { inputs, textarea, disclaimer, button = 'Contact us', description = '', action } = Astro.props;
 ---
 
-<form>
+<form method="POST" action={action}>
   {
     inputs &&
       inputs.map(
-        ({ type = 'text', name, label = '', autocomplete = 'on', placeholder = '' }) =>
+        ({ type = 'text', name, label = '', autocomplete = 'on', placeholder = '', required = false }) =>
           name && (
             <div class="mb-6">
               {label && (
@@ -23,6 +23,7 @@ const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } 
                 id={name}
                 autocomplete={autocomplete}
                 placeholder={placeholder}
+                required={required}
                 class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
               />
             </div>
@@ -41,6 +42,7 @@ const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } 
           name={textarea.name ? textarea.name : 'message'}
           rows={textarea.rows ? textarea.rows : 4}
           placeholder={textarea.placeholder}
+          required={textarea.required}
           class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
         />
       </div>
@@ -55,6 +57,7 @@ const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } 
             id="disclaimer"
             name="disclaimer"
             type="checkbox"
+            required={disclaimer.required}
             class="cursor-pointer mt-1 py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
           />
         </div>
@@ -84,4 +87,71 @@ const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } 
       </div>
     )
   }
+
+  <p data-form-status class="hidden mt-3 text-center text-sm font-medium" role="status" aria-live="polite"></p>
 </form>
+
+<script>
+  // Progressive enhancement for hosted form endpoints (Formspark): intercept
+  // the submit, send it with `Accept: application/json` so the visitor stays
+  // on the page, and surface the result inline. Without JS, the native POST
+  // still goes through (Formspark then shows its own success page).
+  const send = async (form: HTMLFormElement) => {
+    const status = form.querySelector('[data-form-status]');
+    const button = form.querySelector('[type="submit"]');
+    const label = button?.textContent;
+
+    if (status instanceof HTMLElement) {
+      status.classList.add('hidden');
+      status.classList.remove('text-emerald-600', 'dark:text-emerald-400', 'text-red-600', 'dark:text-red-400');
+    }
+
+    if (button instanceof HTMLButtonElement) {
+      button.disabled = true;
+      button.setAttribute('aria-busy', 'true');
+    }
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: new URLSearchParams(Array.from(new FormData(form), ([key, value]) => [key, String(value)])).toString(),
+      });
+
+      if (!response.ok) throw new Error(`Form endpoint replied ${response.status}`);
+
+      form.reset();
+
+      if (status instanceof HTMLElement) {
+        status.textContent = 'Merci ! Votre message a bien été envoyé. Je reviens vers vous rapidement.';
+        status.classList.add('text-emerald-600', 'dark:text-emerald-400');
+        status.classList.remove('hidden');
+      }
+    } catch {
+      if (status instanceof HTMLElement) {
+        status.textContent = 'Une erreur est survenue lors de l’envoi. Merci de réessayer dans un instant.';
+        status.classList.add('text-red-600', 'dark:text-red-400');
+        status.classList.remove('hidden');
+      }
+    } finally {
+      if (button instanceof HTMLButtonElement) {
+        button.disabled = false;
+        button.removeAttribute('aria-busy');
+        if (label) button.textContent = label;
+      }
+    }
+  };
+
+  document.addEventListener(
+    'submit',
+    (event) => {
+      const form = event.target;
+
+      if (!(form instanceof HTMLFormElement) || !form.action.includes('submit-form.com')) return;
+
+      event.preventDefault();
+      send(form);
+    },
+    true
+  );
+</script>

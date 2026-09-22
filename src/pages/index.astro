@@ -7,14 +7,16 @@ import Content from '~/components/widgets/Content.astro';
 import Steps2 from '~/components/widgets/Steps2.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import Contact from '~/components/widgets/Contact.astro';
+import HeroVignette from '~/components/widgets/HeroVignette.astro';
+import Image from '~/components/common/Image.astro';
 import StructuredData from '~/components/common/StructuredData.astro';
 import { SITE, I18N } from 'astrowind:config';
 import favIconSvg from '~/assets/favicons/favicon.svg';
+import clientBossImg from '~/assets/images/client_boss.jpeg';
 
 const metadata = {
   title: 'Guillaume Barillot — Automatisation & IA pour entreprises à Lyon',
-  description:
-    'Guillaume Barillot automatise les processus des PME à Lyon : formulaires CERFA pré-remplis, fin des copier-coller, workflows fiables et gain de temps.',
+  description: 'Automatisation et optimisation des processus des PME à Lyon. Audit gratuit.',
   ignoreTitleTemplate: true,
   openGraph: { type: 'website' },
 };
@@ -45,24 +47,32 @@ const structuredData = [
   <StructuredData slot="head" schema={structuredData} />
 
   <Hero2
-    tagline="Automatisation pragmatique pour les PME"
-    actions={[
-      { variant: 'primary', text: 'Parler de votre projet', href: '#contact', icon: 'tabler:arrow-right' },
-      { text: 'Découvrir notre approche', href: '#approche' },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1400&q=85',
-      alt: "Une équipe de PME organise ses processus autour d'une table",
-    }}
+    actions={[{ variant: 'primary', text: 'Parler de votre projet', href: '#contact', icon: 'tabler:arrow-right' }]}
   >
+    <div slot="image" class="hb-stack">
+      <HeroVignette class="hb-a hidden lg:block" />
+      <Image
+        class="hb-b hidden lg:block rounded-lg shadow-xl shadow-slate-900/10 dark:shadow-black/40"
+        src={clientBossImg}
+        alt="Un consultant et son client échangent autour d'un dossier lors d'une réunion de travail"
+        width={600}
+        height={600}
+        widths={[400, 768, 1024]}
+        loading="eager"
+        fetchpriority="high"
+        format="webp"
+      />
+    </div>
     <Fragment slot="title">
-      Moins de tâches répétitives.<br />
-      <span class="text-gradient">Plus de temps pour votre métier.</span>
+      <span class="hb-stack hb-copy">
+        <span class="hb-a">Moins de tâches répétitives.</span>
+        <span class="hb-b text-gradient">Plus de temps pour votre métier.</span>
+      </span>
     </Fragment>
     <Fragment slot="subtitle">
-      Guillaume Barillot transforme vos processus manuels en workflows simples et fiables : formulaires administratifs
-      (CERFA) pré-remplis, fin des copier-coller entre vos applications, e-mails et PDF. Vous gagnez en efficacité sans
-      bouleverser vos outils ni vos habitudes du jour au lendemain.
+      Saisissez automatiquement les données de vos CERFA, automatisez les copier-coller entre applications, vérifiez en
+      quelques secondes les pièces de dossier envoyées par E-mail sans bouleverser vos outils ni vos habitudes du jour
+      au lendemain.
     </Fragment>
     <Fragment slot="bg">
       <div
@@ -275,11 +285,19 @@ const structuredData = [
 
   <Contact
     id="contact"
+    action="https://submit-form.com/RSR0gqoW8"
     tagline="Premier échange"
     title="Parlons de ce qui ralentit vos équipes"
     subtitle="Décrivez-nous brièvement votre organisation et le processus que vous aimeriez simplifier. Nous reviendrons vers vous pour organiser un premier rendez-vous sans engagement."
     inputs={[
-      { type: 'text', name: 'name', label: 'Nom et prénom', autocomplete: 'name', placeholder: 'Votre nom' },
+      {
+        type: 'text',
+        name: 'name',
+        label: 'Nom et prénom',
+        autocomplete: 'name',
+        placeholder: 'Votre nom',
+        required: true,
+      },
       {
         type: 'text',
         name: 'company',
@@ -293,6 +311,7 @@ const structuredData = [
         label: 'E-mail professionnel',
         autocomplete: 'email',
         placeholder: 'vous@entreprise.fr',
+        required: true,
       },
       {
         type: 'tel',
@@ -307,12 +326,136 @@ const structuredData = [
       name: 'message',
       placeholder: 'Quelques lignes sur votre fonctionnement actuel, les difficultés rencontrées et votre objectif…',
       rows: 5,
-    }}
-    disclaimer={{
-      label:
-        'J’accepte que Guillaume Barillot utilise ces informations uniquement pour répondre à ma demande de rendez-vous.',
+      required: true,
     }}
     button="Demander un rendez-vous"
     description="Vos coordonnées ne sont ni publiées ni transmises à des tiers."
   />
 </Layout>
+
+<style is:global>
+  /* Hero intro loop on a 10s cycle: phase A (sentence 1 + CERFA vignette)
+     holds 0-30% (~3s), phase B (sentence 2 + client photo) holds 36-89%
+     (~5.3s) — each sequence gained 1s over the original 8s cut. The 10s
+     cycle matches HeroVignette's internal loop so both stay in sync.
+     The headline copy slides in from the outer left on each phase; the
+     image only crossfades. */
+  .hb-stack {
+    display: grid;
+  }
+
+  .hb-stack > * {
+    grid-area: 1 / 1;
+  }
+
+  .hb-a {
+    opacity: 0;
+    animation: hb-phase-a 10s linear infinite;
+  }
+
+  .hb-b {
+    opacity: 1;
+    animation: hb-phase-b 10s linear infinite;
+  }
+
+  .hb-copy .hb-a {
+    animation: hb-slide-a 10s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+  }
+
+  .hb-copy .hb-b {
+    animation: hb-slide-b 10s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+  }
+
+  @keyframes hb-phase-a {
+    0%,
+    30% {
+      opacity: 1;
+    }
+
+    34%,
+    93% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes hb-phase-b {
+    0%,
+    32% {
+      opacity: 0;
+    }
+
+    36%,
+    89% {
+      opacity: 1;
+    }
+
+    96%,
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes hb-slide-a {
+    0%,
+    30% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    34% {
+      opacity: 0;
+      transform: translateX(-32px);
+    }
+
+    93% {
+      opacity: 0;
+      transform: translateX(-48px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes hb-slide-b {
+    0%,
+    32% {
+      opacity: 0;
+      transform: translateX(-48px);
+    }
+
+    36%,
+    89% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    94%,
+    100% {
+      opacity: 0;
+      transform: translateX(-48px);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hb-a,
+    .hb-b,
+    .hb-copy .hb-a,
+    .hb-copy .hb-b {
+      animation: none;
+    }
+
+    .hb-a {
+      opacity: 0;
+    }
+
+    .hb-b {
+      opacity: 1;
+    }
+  }
+</style>
