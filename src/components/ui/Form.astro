@@ -147,6 +147,7 @@ const { inputs, textarea, disclaimer, button = 'Contact us', description = '', a
     const panel = form.nextElementSibling;
     const button = form.querySelector('[type="submit"]');
     const label = button?.innerHTML;
+    let errorMessage = 'Une erreur est survenue lors de l’envoi. Merci de réessayer dans un instant.';
 
     if (status instanceof HTMLElement) {
       status.classList.add('hidden');
@@ -161,11 +162,22 @@ const { inputs, textarea, disclaimer, button = 'Contact us', description = '', a
     try {
       const response = await fetch(form.action, {
         method: 'POST',
-        headers: { Accept: 'application/json' },
-        body: new URLSearchParams(Array.from(new FormData(form), ([key, value]) => [key, String(value)])).toString(),
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify(
+          Object.fromEntries(Array.from(new FormData(form), ([key, value]) => [key, String(value)]))
+        ),
       });
 
-      if (!response.ok) throw new Error(`Form endpoint replied ${response.status}`);
+      if (!response.ok) {
+        if (response.status === 403) {
+          errorMessage =
+            'Votre message a été refusé par la protection anti-spam. Merci d’éviter les textes de test et de reformuler votre demande.';
+        }
+        throw new Error(`Form endpoint replied ${response.status}`);
+      }
 
       form.reset();
       form.classList.add('hidden');
@@ -176,7 +188,7 @@ const { inputs, textarea, disclaimer, button = 'Contact us', description = '', a
       }
     } catch {
       if (status instanceof HTMLElement) {
-        status.textContent = 'Une erreur est survenue lors de l’envoi. Merci de réessayer dans un instant.';
+        status.textContent = errorMessage;
         status.classList.remove('hidden');
       }
     } finally {
