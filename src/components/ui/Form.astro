@@ -88,27 +88,74 @@ const { inputs, textarea, disclaimer, button = 'Contact us', description = '', a
     )
   }
 
-  <p data-form-status class="hidden mt-3 text-center text-sm font-medium" role="status" aria-live="polite"></p>
+  <p data-form-status class="hidden mt-3 text-center text-sm font-medium text-red-600 dark:text-red-400" role="alert">
+  </p>
 </form>
+
+<div
+  data-form-success
+  class="rounded-lg border border-emerald-200 dark:border-emerald-900 bg-emerald-50 dark:bg-emerald-900/20 px-6 py-10 text-center"
+  tabindex="-1"
+  role="status"
+  hidden
+>
+  <span class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-emerald-100 dark:bg-emerald-900/50">
+    <svg
+      class="h-7 w-7 text-emerald-600 dark:text-emerald-400"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+      <path d="m9 11 3 3L22 4"></path>
+    </svg>
+  </span>
+  <h3 class="mt-5 text-xl font-bold text-gray-900 dark:text-white">Merci ! Votre message a bien été envoyé.</h3>
+  <p class="mt-2 text-gray-600 dark:text-gray-400">Je reviens vers vous au plus vite.</p>
+  <button type="button" data-form-again class="btn-secondary mt-6">Envoyer un autre message</button>
+</div>
+
+<style>
+  [data-form-success]:not([hidden]) {
+    animation: form-success-in 0.3s ease-out;
+  }
+  @keyframes form-success-in {
+    from {
+      opacity: 0;
+      transform: translateY(4px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+</style>
 
 <script>
   // Progressive enhancement for hosted form endpoints (Formspark): intercept
   // the submit, send it with `Accept: application/json` so the visitor stays
   // on the page, and surface the result inline. Without JS, the native POST
   // still goes through (Formspark then shows its own success page).
+  const spinner = `<svg class="animate-spin h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 0 1 8-8v4a4 4 0 0 0-4 4H4z"></path></svg>`;
+
   const send = async (form: HTMLFormElement) => {
     const status = form.querySelector('[data-form-status]');
+    const panel = form.nextElementSibling;
     const button = form.querySelector('[type="submit"]');
-    const label = button?.textContent;
+    const label = button?.innerHTML;
 
     if (status instanceof HTMLElement) {
       status.classList.add('hidden');
-      status.classList.remove('text-emerald-600', 'dark:text-emerald-400', 'text-red-600', 'dark:text-red-400');
     }
 
     if (button instanceof HTMLButtonElement) {
       button.disabled = true;
       button.setAttribute('aria-busy', 'true');
+      button.innerHTML = `${spinner}<span class="ml-2">Envoi en cours…</span>`;
     }
 
     try {
@@ -121,23 +168,22 @@ const { inputs, textarea, disclaimer, button = 'Contact us', description = '', a
       if (!response.ok) throw new Error(`Form endpoint replied ${response.status}`);
 
       form.reset();
+      form.classList.add('hidden');
 
-      if (status instanceof HTMLElement) {
-        status.textContent = 'Merci ! Votre message a bien été envoyé. Je reviens vers vous rapidement.';
-        status.classList.add('text-emerald-600', 'dark:text-emerald-400');
-        status.classList.remove('hidden');
+      if (panel instanceof HTMLElement && panel.matches('[data-form-success]')) {
+        panel.hidden = false;
+        panel.focus();
       }
     } catch {
       if (status instanceof HTMLElement) {
         status.textContent = 'Une erreur est survenue lors de l’envoi. Merci de réessayer dans un instant.';
-        status.classList.add('text-red-600', 'dark:text-red-400');
         status.classList.remove('hidden');
       }
     } finally {
       if (button instanceof HTMLButtonElement) {
         button.disabled = false;
         button.removeAttribute('aria-busy');
-        if (label) button.textContent = label;
+        if (label) button.innerHTML = label;
       }
     }
   };
@@ -154,4 +200,21 @@ const { inputs, textarea, disclaimer, button = 'Contact us', description = '', a
     },
     true
   );
+
+  document.addEventListener('click', (event) => {
+    const trigger = event.target instanceof Element ? event.target.closest('[data-form-again]') : null;
+    if (!trigger) return;
+
+    const panel = trigger.closest('[data-form-success]');
+    const form = panel?.previousElementSibling;
+
+    if (!(panel instanceof HTMLElement) || !(form instanceof HTMLFormElement)) return;
+
+    form.reset();
+    form.classList.remove('hidden');
+    panel.hidden = true;
+
+    const firstField = form.querySelector('input, textarea');
+    if (firstField instanceof HTMLElement) firstField.focus();
+  });
 </script>
