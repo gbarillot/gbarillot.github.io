@@ -1,0 +1,1 @@
+import{t as e}from"./prefetch.CEJ22SlF.js";e();
