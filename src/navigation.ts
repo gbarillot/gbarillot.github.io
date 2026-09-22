@@ -38,7 +38,7 @@ export const footerData = {
     {
       ariaLabel: 'Profil LinkedIn de Guillaume Barillot',
       href: 'https://www.linkedin.com/in/guillaume-barillot-4b920427/',
-      icon: 'tabler:brand-linkedin',
+      icon: 'tabler:brand-linkedin-filled',
     },
   ],
   footNote: `© ${new Date().getFullYear()} Guillaume Barillot. Tous droits réservés.`,
