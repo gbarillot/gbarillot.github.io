@@ -34,6 +34,12 @@ export const footerData = {
     { text: 'Mentions légales', href: getPermalink('/terms') },
     { text: 'Confidentialité', href: getPermalink('/privacy') },
   ],
-  socialLinks: [],
+  socialLinks: [
+    {
+      ariaLabel: 'Profil LinkedIn de Guillaume Barillot',
+      href: 'https://www.linkedin.com/in/guillaume-barillot-4b920427/',
+      icon: 'tabler:brand-linkedin',
+    },
+  ],
   footNote: `© ${new Date().getFullYear()} Guillaume Barillot. Tous droits réservés.`,
 };
